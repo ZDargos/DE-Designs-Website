@@ -92,6 +92,7 @@
             object-fit: cover;
             border-radius: 10px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: block;
         }
         .carousel button {
             position: absolute;
@@ -148,7 +149,7 @@
     <section class="content-box" style="max-width: 80%; margin: 20px auto;">
         <h2>Project Photo Gallery</h2>
         <div class="photo-gallery" style="display: flex; justify-content: space-between;">
-            <div class="carousel-container" style="flex: 1; text-align: center;">
+            <div class="carousel" style="flex: 1; text-align: center;">
                 <h3 class="carousel-title">Project 1</h3>
                 <div class="carousel" id="project1">
                     <img id="project1-image" src="project1-1.jpg" alt="Project 1">
@@ -156,15 +157,15 @@
                     <button class="next" onclick="nextImage('project1')">❯</button>
                 </div>
             </div>
-            <div class="carousel-container" style="flex: 1; text-align: center;">
+            <div class="carousel" style="flex: 1; text-align: center;">
                 <h3 class="carousel-title">Project 2</h3>
                 <div class="carousel" id="project2">
-                    <img id="project2-image" src="project2-1.jpg" alt="Project 2">
+                    <img class = slide, id="project2-image" src="project2-1.jpg" alt="Project 2">
                     <button class="prev" onclick="prevImage('project2')">❮</button>
                     <button class="next" onclick="nextImage('project2')">❯</button>
                 </div>
             </div>
-            <div class="carousel-container" style="flex: 1; text-align: center;">
+            <div class="carousel" style="flex: 1; text-align: center;">
                 <h3 class="carousel-title">Project 3</h3>
                 <div class="carousel" id="project3">
                     <img id="project3-image" src="project3-1.jpg" alt="Project 3">
@@ -178,17 +179,16 @@
  
     <script>
         window.onload = function() {
-            showFirstImage('project1');
-            showFirstImage('project2');
-            showFirstImage('project3');
+            nextImage('project1');
+            nextImage('project2');
+            nextImage('project3');
+            prevImage('project1');
+            prevImage('project2');
+            prevImage('project3');
         };
     
-        function showFirstImage(projectId) {
-            let carousel = document.getElementById(projectId);
-            let firstImage = carousel.querySelector('img');
-            firstImage.style.display = 'block';
-        }
-
+       
+        
         const images = {
             project1: ['project1-1.png', 'project1-2.png', 'project1-3.png'],
             project2: ['project2-1.jpeg', 'project2-2.jpeg', 'project2-3.jpeg'],
