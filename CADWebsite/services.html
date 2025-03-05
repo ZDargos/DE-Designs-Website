@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Daedalus Engineering Designs - CAD, Engineering Drawings, and 3D Prototypes">
+    <meta name="keywords" content="CAD, Engineering Drawings, 3D Prototypes, Mechanical Engineering, Aerospace Engineering">
+    <meta name="author" content="Daedalus Engineering Designs">
+    <title>Daedalus Engineering Designs</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --menu-font: "Quicksand", serif;
+            --menu-font-size: 28px;
+            --menu-font-color: #ffffff;
+            --menu-title-padding: 0px;
+        }
+        body {
+            font-family: var(--menu-font);
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            background-color: #235676;
+            padding: 15px 50px;
+        }
+        header a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        header img {
+            height: 50px;
+        }
+        .menu-divider {
+            width: 2px;
+            height: 40px;
+            background-color: white;
+            margin: 0 25px;
+        }
+        .MenuBarName {
+            color: var(--menu-font-color);
+            font-size: var(--menu-font-size);
+            font-family: var(--menu-font);
+            padding-left: var(--menu-title-padding);
+            font-weight: 200;
+            white-space: nowrap;
+            display: inline-block;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            margin-left: 800px;
+        }
+        nav ul li {
+            margin-left: 35px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: var(--menu-font-color);
+            font-size: 22px;
+            font-family: var(--menu-font);
+            font-weight: 300;
+            transition: background-color 0.3s ease;
+        }
+        nav ul li a.active {
+            color: #ffcc00;
+        }
+        .services-title {
+            text-align: center;
+            padding-top: 50px;
+            padding-bottom: 20px;
+            font-size: 36px;
+            color: #003366;
+            font-family: "Quicksand", serif;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+        .service-item {
+            background: #e6f7ff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .service-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .services-bottom {
+            text-align: center;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            padding-left: 100px;
+            padding-right: 100px;
+            font-size: 28px;
+            color: #003366;
+            font-family: "Quicksand", serif;
+        }
+        footer {
+            background-color: #235676;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <img src="logo.png" alt="Company Logo">
+            <div class="menu-divider"></div>
+            <h1 class="MenuBarName">Daedalus Engineering Designs</h1>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1 class="services-title">Our Services</h1>
+    <section class="services-grid">
+        <div class="service-item">
+            <h2>3D Model Creation</h2>
+            <img src="photo1.jpeg" alt="3D CAD Design">
+            <p>Using state-of-the-art Computer Aided Design (CAD) software, we create highly accurate and customized 3D models tailored to your exact specifications. These digital models transform your vision into reality, serving as the foundation for product development and prototyping. We deliver your preferred file formats — including STL, STEP, SLDPRT, SLDASM, OBJ, F3D, and 3MF — and design around critical tolerances to ensure manufacturability and performance.</p>
+        </div>
+        <div class="service-item">
+            <h2>Engineering Drawings</h2>
+            <img src="photo2.jpeg" alt="Engineering Drawings">
+            <p>Our detailed engineering drawings follow industry standards to bring your 3D CAD models to life by providing the precise specifications needed for fabrication. These drawings act as an essential extension of the digital models, translating complex designs into clear, manufacturable blueprints. Whether your project requires machining, 3D printing, or injection molding for tool and mold creation, our technical drawings ensure that every dimension, tolerance, and material detail is accurately conveyed for flawless production.</p>
+        </div>
+        <div class="service-item">
+            <h2>3D Printed Prototypes</h2>
+            <img src="photo3.jpeg" alt="3D Printed Prototype">
+            <p>Visualize and test your design with high-quality 3D printed prototypes.</p>
+        </div>
+    </section>
+    <h2 class="services-bottom">Let us help you bridge the gap between concept and creation.</h2>
+    <footer>
+        <p>&copy; 2025 Daedalus Engineering Designs. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
