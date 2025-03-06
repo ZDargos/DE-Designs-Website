@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    height: 100%
 }
 
 
@@ -47,6 +48,7 @@ footer {
     color: white;
     text-align: center;
     padding: 10px 0;
+    margin-bo
 }
 
 .added_margin {
@@ -80,4 +82,9 @@ header img {
     color: var(--menu-font-color);
     font-size: var(--menu-font-size);
     font-weight: 200;
+}
+
+h3 {
+    font-size: 3em;
+    margin: 0;
 }
