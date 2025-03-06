@@ -135,3 +135,10 @@ html {
 .header_sep {
     margin-bottom: 15vh;
 }
+
+textarea  
+{  
+   font-family: Arial, sans-serif; 
+   font-size: 16px; 
+   resize: vertical;
+}
