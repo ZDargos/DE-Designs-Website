@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
-    height: 100%
+
 }
 
 
@@ -47,8 +47,8 @@ footer {
     background-color: #235676;
     color: white;
     text-align: center;
-    padding: 10px 0;
-    margin-bo
+    padding: 1px;
+    
 }
 
 .added_margin {
@@ -87,4 +87,27 @@ header img {
 h3 {
     font-size: 3em;
     margin: 0;
+}
+
+.custom-link {
+    color: rgb(213, 213, 213); 
+    
+}
+
+
+.custom-link:hover {
+    color: rgba(15, 15, 129, 0.365); 
+    text-decoration: underline; 
+}
+
+h4 {
+    font-size: 1.5ex;
+    font-weight: 20;
+}
+
+h5 {
+    font-size: 2.5ex;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 0px;
 }

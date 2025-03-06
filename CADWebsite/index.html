@@ -50,17 +50,16 @@
         }
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
-            padding: 20px;
-            margin-top: 0px;
+            padding: 50px;
+            text-align: center;
         }
+
         .service-item {
-            background: #e6f7ff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            
+            opacity: 0;
+            transform: translateY(30px); /* Moves down initially */
+            transition: opacity 1s ease-out, transform 1s ease-out;
         }
         .service-item img {
             width: 100%;
@@ -69,7 +68,14 @@
             border-radius: 10px;
 
         }
+        .service-item.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
         .section-box {
+            opacity: 0;
+            transform: translateY(30px); /* Moves down initially */
+            transition: opacity 1s ease-out, transform 1s ease-out;
             background: white;
             margin: 20px auto;
             padding: 30px;
@@ -78,7 +84,16 @@
             max-width: 80%;
         }
 
+        .section-box.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+
         .description-grid {
+            opacity: 0;
+            transform: translateY(30px); /* Moves down initially */
+            transition: opacity 1s ease-out, transform 1s ease-out;
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 20px;
@@ -103,6 +118,11 @@
             background: white;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .description-grid.show {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -147,7 +167,7 @@
     <div class="description-grid">
         <div class="box1">
             <h2>Why Choose Us</h2>
-            <p>We provide tailored engineering solutions with precision, creativity, and unmatched quality.</p>
+            <p>We provide tailored engineering solutions with precision, creativity, and unmatched quality.<br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
         </div>
         <div class="box2">
             <h2>What Our Clients Say</h2>
@@ -176,6 +196,44 @@
             .catch(error => {
                 console.error('Error fetching footer:', error);
             });
+
+        //Add fade in effect for the service-item class
+        document.addEventListener("DOMContentLoaded", function () {
+            const serviceItems = document.querySelectorAll(".service-item");
+
+            const observer = new IntersectionObserver(
+                (entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("show"); // Add the 'show' class when visible
+                            observer.unobserve(entry.target); // Stop observing once shown
+                        }
+                    });
+                },
+                { threshold: 0.2 } // Trigger when 20% of the element is visible
+            );
+
+            serviceItems.forEach(item => observer.observe(item));
+        });
+
+        //Add fade in effect for the description-grid class
+        document.addEventListener("DOMContentLoaded", function () {
+            const serviceItems = document.querySelectorAll(".description-grid");
+
+            const observer = new IntersectionObserver(
+                (entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("show"); // Add the 'show' class when visible
+                            observer.unobserve(entry.target); // Stop observing once shown
+                        }
+                    });
+                },
+                { threshold: 0.2 } // Trigger when 20% of the element is visible
+            );
+
+            serviceItems.forEach(item => observer.observe(item));
+        });
     </script>
 </body>
 </html>
