@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -9,7 +11,7 @@
     <meta name="description" content="Daedalus Engineering Designs - CAD, Engineering Drawings, and 3D Prototypes">
     <meta name="keywords" content="CAD, Engineering Drawings, 3D Prototypes, Mechanical Engineering, Aerospace Engineering">
     <meta name="author" content="Daedalus Engineering Designs">
-    <title>About Us - Daedalus Engineering Designs</title>
+    <title>Daedalus Engineering Designs</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         :root {
@@ -23,28 +25,6 @@
             padding: 0;
             background-color: #f4f4f4;
             text-align: center;
-        }
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: #235676;
-            padding: 15px 50px;
-        }
-        header img {
-            height: 50px;
-        }
-        .menu-divider {
-            width: 2px;
-            height: 40px;
-            background-color: white;
-            margin: 0 25px;
-        }
-        
-        .MenuBarName {
-            color: var(--menu-font-color);
-            font-size: var(--menu-font-size);
-            font-weight: 200;
         }
         nav ul {
             list-style: none;
@@ -64,7 +44,88 @@
         nav ul li a.active {
             color: #ffcc00;
         }
+        .hero {
+            text-align: center;
+            color: #235676;
+            padding: 30px 0;
+            font-weight: bold;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .service-item {
+            opacity: 0;
+            transform: translateY(30px); /* Moves down initially */
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .service-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: scale-down;
+            border-radius: 10px;
+
+        }
+        .service-item.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .section-box {
+            opacity: 0;
+            transform: translateY(30px); /* Moves down initially */
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            background: white;
+            margin: 20px auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 80%;
+        }
+
+        .section-box.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
         
+
+        .description-grid {
+            opacity: 0;
+            transform: translateY(30px); /* Moves down initially */
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            padding: 20px;
+            margin-top: 0px;
+            background-color: #f4f4f4;
+        }
+
+        .box1,
+        .box2 {
+            grid-column: 1;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .tall-box {
+            grid-column: 2;
+            grid-row: 1 / span 2; /* Span across two rows */
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .description-grid.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
         .content-container {
             opacity: 0;
             transform: translateY(30px); /* Moves down initially */
@@ -157,11 +218,6 @@
         .carousel button.next {
             right: 0px;
         }
-        
-       
-        
-        
-        
     </style>
 </head>
 <body>
@@ -173,14 +229,55 @@
         </a>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="#index" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <div class="content-container">
+    <div class="hero">
+        <h1>Innovative CAD and Engineering Solutions</h1>
+    </div>
+
+    <section class="services-grid" id="index">
+        <div class="service-item">
+            <h2>3D Model Creation</h2>
+            <img src="images/home-photos/photo1.jpeg" alt="3D CAD Design">
+            <p>Using state-of-the-art Computer Aided Design (CAD) software, we create highly accurate and customized 3D models tailored to your exact specifications. These digital models transform your vision into reality, serving as the foundation for product development and prototyping. We deliver your preferred file formats — including STL, STEP, SLDPRT, SLDASM, OBJ, F3D, and 3MF — and design around critical tolerances to ensure manufacturability and performance.</p>
+        </div>
+        <div class="service-item">
+            <h2>Engineering Drawings</h2>
+            <img src="images/home-photos/Drawing1.png" alt="Engineering Drawings">
+            <p>Our detailed engineering drawings follow industry standards to bring your 3D CAD models to life by providing the precise specifications needed for fabrication. These drawings act as an essential extension of the digital models, translating complex designs into clear, manufacturable blueprints. Whether your project requires machining, 3D printing, or injection molding for tool and mold creation, our technical drawings ensure that every dimension, tolerance, and material detail is accurately conveyed for flawless production.</p>
+        </div>
+        <div class="service-item">
+            <h2>3D Printed Prototypes</h2>
+            <img src="images/home-photos/photo3.jpeg" alt="3D Printed Prototype">
+            <p>Visualize and test your design with high-quality 3D printed rapid prototypes.</p>
+        </div>
+    </section>
+
+    <div class="description-grid">
+        <div class="box1">
+            <h2>Why Choose Us</h2>
+            <p>We provide tailored engineering solutions with precision, creativity, and unmatched quality.<br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+        </div>
+        <div class="box2">
+            <h2>What Our Clients Say</h2>
+            <p>Client A: "Daedalus Engineering Designs delivered our project with incredible attention to detail and professionalism."</p>
+            <p>Client B: "The team’s expertise and dedication made our vision a reality. Highly recommended!"</p>
+        </div>
+        <div class="tall-box">
+            <h2>Feedback</h2>
+            <p>Your feedback is greatly appreciated! Any thoughts on how we could improve our services will be taken into consideration.<br> 
+                <br>Please fill out this short <a href="https://forms.gle/7vtSmW4Hpxy638Qj8" target="_blank">form</a>!<br>
+                
+            </p>
+        </div>
+    </div>
+
+    <div class="content-container", id="about">
         <section class="content-box">
             <div class="blockTitle">
                 <h1>About Us</h1>
@@ -232,11 +329,60 @@
     
     <div class="added_margin"></div>
     <div id="main-footer"></div>
-    <script>
-        window.onload = function() {
-            
-        };
     
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                console.log('Footer fetched successfully');
+                document.getElementById('main-footer').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error fetching footer:', error);
+            });
+
+        //Add fade in effect for the service-item class
+        document.addEventListener("DOMContentLoaded", function () {
+            const serviceItems = document.querySelectorAll(".service-item");
+
+            const observer = new IntersectionObserver(
+                (entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("show"); // Add the 'show' class when visible
+                           // observer.unobserve(entry.target); // Uncomment if you want it to not hide again once it is shown
+                        }else {
+                        entry.target.classList.remove("show"); // Hide when out of view
+                    }
+                    });
+                },
+                { threshold: 0.2 } // Trigger when 20% of the element is visible
+            );
+
+            serviceItems.forEach(item => observer.observe(item));
+        });
+
+        //Add fade in effect for the description-grid class
+        document.addEventListener("DOMContentLoaded", function () {
+            const serviceItems = document.querySelectorAll(".description-grid");
+
+            const observer = new IntersectionObserver(
+                (entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("show"); // Add the 'show' class when visible
+                           // observer.unobserve(entry.target); // Uncomment if you want it to not hide again once it is shown
+                        }else {
+                        entry.target.classList.remove("show"); // Hide when out of view
+                    }
+                    });
+                },
+                { threshold: 0.3 } // Trigger when 30% of the element is visible
+            );
+
+            serviceItems.forEach(item => observer.observe(item));
+        });
+        
        
         
         const images = {
@@ -253,15 +399,7 @@
             index[project] = (index[project] - 1 + images[project].length) % images[project].length;
             document.querySelector(`#${project} img`).src = images[project][index[project]];
         }
-        fetch('footer.html')
-            .then(response => response.text())
-            .then(data => {
-                console.log('Footer fetched successfully');
-                document.getElementById('main-footer').innerHTML = data;
-            })
-            .catch(error => {
-                console.error('Error fetching footer:', error);
-            });
+       
 
         //Add fade in effect for the content-container class
         document.addEventListener("DOMContentLoaded", function () {
@@ -278,7 +416,7 @@
                     }
                     });
                 },
-                { threshold: 0.2 } // Trigger when 20% of the element is visible
+                { threshold: 0.3 } // Trigger when 30% of the element is visible
             );
 
             serviceItems.forEach(item => observer.observe(item));
@@ -297,16 +435,14 @@
                         }else {
                         entry.target.classList.remove("show"); // Hide when out of view
                     }
+                        
                     });
                 },
-                { threshold: 0.2 } // Trigger when 20% of the element is visible
+                { threshold: 0.3 } // Trigger when 30% of the element is visible
             );
 
             serviceItems.forEach(item => observer.observe(item));
         });
     </script>
-
-    
-    
 </body>
 </html>

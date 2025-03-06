@@ -138,6 +138,7 @@
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li><a href="experimental.html">Experimental</a></li>
             </ul>
         </nav>
     </header>
@@ -206,8 +207,10 @@
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
                             entry.target.classList.add("show"); // Add the 'show' class when visible
-                            observer.unobserve(entry.target); // Stop observing once shown
-                        }
+                           // observer.unobserve(entry.target); // Uncomment if you want it to not hide again once it is shown
+                        }else {
+                        entry.target.classList.remove("show"); // Hide when out of view
+                    }
                     });
                 },
                 { threshold: 0.2 } // Trigger when 20% of the element is visible
@@ -225,8 +228,10 @@
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
                             entry.target.classList.add("show"); // Add the 'show' class when visible
-                            observer.unobserve(entry.target); // Stop observing once shown
-                        }
+                           // observer.unobserve(entry.target); // Uncomment if you want it to not hide again once it is shown
+                        }else {
+                        entry.target.classList.remove("show"); // Hide when out of view
+                    }
                     });
                 },
                 { threshold: 0.2 } // Trigger when 20% of the element is visible
