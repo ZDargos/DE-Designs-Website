@@ -80,9 +80,9 @@
         .carousel {
             position: relative;
             display: inline-block;
-            padding-inline: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            padding-inline: 2vw;
+            border-radius: 1vw;
+            
         }
         .carousel-title {
             font-size: 20px;
@@ -105,8 +105,9 @@
         }
 
         .carousel > .carousel img:active {
-            transform: scale(5);
+            transform: scale(6);
             position: fixed;
+            
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%) scale(2); /* Centers and enlarges */
@@ -231,17 +232,6 @@
             document.querySelector(`#${project} img`).src = images[project][index[project]];
         }
 
-        function openLightbox(image) {
-            const lightbox = document.getElementById("lightbox");
-            const lightboxImg = document.getElementById("lightbox-img");
-
-            lightbox.style.display = "flex"; // Show lightbox
-            lightboxImg.src = image.src; // Set image source
-        }
-
-        function closeLightbox() {
-            document.getElementById("lightbox").style.display = "none";
-        }
     </script>
 
     <footer>
