@@ -40,6 +40,7 @@
             background-color: white;
             margin: 0 25px;
         }
+        
         .MenuBarName {
             color: var(--menu-font-color);
             font-size: var(--menu-font-size);
@@ -62,6 +63,13 @@
         }
         nav ul li a.active {
             color: #ffcc00;
+        }
+        .blockTitle {
+            text-align: center;
+            color: #235676;
+            padding: 10px 0;
+            font-weight: bold;
+            font-size: 10px;
         }
         .content-container {
             display: grid;
@@ -92,6 +100,7 @@
             width: 20vw;
             height: 15vw;
             object-fit: scale-down;
+            
             border-radius: 10px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             display: block;
@@ -99,15 +108,12 @@
             cursor: pointer;
 
         }
-        .carousel img:active {
-            -webkit-transform:scale(1.5); /* or some other value */
-            transform:scale(1.5);
-        }
+        
 
         .carousel > .carousel img:active {
             transform: scale(6);
+            width:fit-content;
             position: fixed;
-            
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%) scale(2); /* Centers and enlarges */
@@ -163,17 +169,25 @@
 
     <div class="content-container">
         <section class="content-box">
-            <h2>About Me</h2>
-            <p>Jack is extremely, unbelieveably fucking stupid</p>
+            <div class="blockTitle">
+                <h1>About Me</h1>
+            </div>
+            <p>Welcome to Daedalus Engineering Designs! I’m Jack Ceriello, a Mechanical Engineering student with a concentration in Aerospace Engineering and a deep passion for innovative design. I am currently studying at Stevens Institute of Technology and have received honors and merit-based awards for my academic achievements. Through years of experience with CAD across multiple platforms, I’ve honed my ability to create effective engineering solutions that tackle unique problems. Whether it’s designing parts and tools to solve everyday challenges or developing products for companies like yours, I bring a full toolbox of skills and techniques to every project.
+                At Daedalus Engineering Designs, I focus on ensuring that every part is designed with its intended fabrication process in mind. I have extensive experience working with additive manufacturing (most notably FDM and SLA (resin) 3D printing) and I’ve designed numerous parts optimized for injection molding, laser cutting, and subtractive manufacturing (machining). My goal is to deliver designs that are not only functional and efficient but also perfectly suited to your production methods.
+                Let’s bring your ideas to life. Whether you need CAD files, engineering drawings, or 3D-printed prototypes, I’m here to help turn your vision into reality.</p>
         </section>
         <section class="content-box">
-            <h2>Previous Projects</h2>
+            <div class="blockTitle">
+                <h1>Previous Projects</h1>
+            </div>
             <p>Highlight some of your most exciting and successful projects here, showcasing your expertise and creativity.</p>
         </section>
     </div>
 
     <section class="content-box" style="max-width: 80%; margin: 20px auto;">
-        <h2>Project Photo Gallery</h2>
+        <div class="blockTitle">
+            <h1>Project Photo Gallery</h1>
+        </div>
         <div class="photo-gallery" style="display: flex; justify-content: space-between;">
             <div class="carousel" style="flex: 1; text-align: center;">
                 <h3 class="carousel-title">Project 1</h3>
@@ -204,7 +218,7 @@
     </section>
     
     
- 
+    <div id="main-footer"></div>
     <script>
         window.onload = function() {
             nextImage('project1');
@@ -231,12 +245,19 @@
             index[project] = (index[project] - 1 + images[project].length) % images[project].length;
             document.querySelector(`#${project} img`).src = images[project][index[project]];
         }
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                console.log('Footer fetched successfully');
+                document.getElementById('main-footer').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error fetching footer:', error);
+            });
 
     </script>
 
-    <footer>
-        <h2>Let us help you bridge the gap between concept and creation.</h2>
-        <p>&copy; 2025 Daedalus Engineering Designs. All Rights Reserved.</p>
-    </footer>
+    
+    
 </body>
 </html>
