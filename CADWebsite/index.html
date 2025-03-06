@@ -24,27 +24,6 @@
             background-color: #f4f4f4;
             text-align: center;
         }
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: #235676;
-            padding: 15px 50px;
-        }
-        header img {
-            height: 50px;
-        }
-        .menu-divider {
-            width: 2px;
-            height: 40px;
-            background-color: white;
-            margin: 0 25px;
-        }
-        .MenuBarName {
-            color: var(--menu-font-color);
-            font-size: var(--menu-font-size);
-            font-weight: 200;
-        }
         nav ul {
             list-style: none;
             margin: 0;
@@ -98,11 +77,32 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             max-width: 80%;
         }
-        footer {
-            background-color: #235676;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
+
+        .description-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            padding: 20px;
+            margin-top: 0px;
+            background-color: #f4f4f4;
+        }
+
+        .box1,
+        .box2 {
+            grid-column: 1;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .tall-box {
+            grid-column: 2;
+            grid-row: 1 / span 2; /* Span across two rows */
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
@@ -129,34 +129,43 @@
     <section class="services-grid">
         <div class="service-item">
             <h2>3D Model Creation</h2>
-            <img src="photo1.jpeg" alt="3D CAD Design">
+            <img src="images/home-photos/photo1.jpeg" alt="3D CAD Design">
             <p>Using state-of-the-art Computer Aided Design (CAD) software, we create highly accurate and customized 3D models tailored to your exact specifications. These digital models transform your vision into reality, serving as the foundation for product development and prototyping. We deliver your preferred file formats — including STL, STEP, SLDPRT, SLDASM, OBJ, F3D, and 3MF — and design around critical tolerances to ensure manufacturability and performance.</p>
         </div>
         <div class="service-item">
             <h2>Engineering Drawings</h2>
-            <img src="Drawing1.png" alt="Engineering Drawings">
+            <img src="images/home-photos/Drawing1.png" alt="Engineering Drawings">
             <p>Our detailed engineering drawings follow industry standards to bring your 3D CAD models to life by providing the precise specifications needed for fabrication. These drawings act as an essential extension of the digital models, translating complex designs into clear, manufacturable blueprints. Whether your project requires machining, 3D printing, or injection molding for tool and mold creation, our technical drawings ensure that every dimension, tolerance, and material detail is accurately conveyed for flawless production.</p>
         </div>
         <div class="service-item">
             <h2>3D Printed Prototypes</h2>
-            <img src="photo3.jpeg" alt="3D Printed Prototype">
+            <img src="images/home-photos/photo3.jpeg" alt="3D Printed Prototype">
             <p>Visualize and test your design with high-quality 3D printed rapid prototypes.</p>
         </div>
     </section>
 
-    <section class="section-box">
-        <h2>Why Choose Us</h2>
-        <p>We provide tailored engineering solutions with precision, creativity, and unmatched quality.</p>
-        
-    </section>
+    <div class="description-grid">
+        <div class="box1">
+            <h2>Why Choose Us</h2>
+            <p>We provide tailored engineering solutions with precision, creativity, and unmatched quality.</p>
+        </div>
+        <div class="box2">
+            <h2>What Our Clients Say</h2>
+            <p>Client A: "Daedalus Engineering Designs delivered our project with incredible attention to detail and professionalism."</p>
+            <p>Client B: "The team’s expertise and dedication made our vision a reality. Highly recommended!"</p>
+        </div>
+        <div class="tall-box">
+            <h2>Feedback</h2>
+            <p>Your feedback is greatly appreciated! Any thoughts on how we could improve our services will be taken into consideration.<br> 
+                <br>Please fill out this short <a href="https://forms.gle/7vtSmW4Hpxy638Qj8" target="_blank">form</a>!<br>
+                
+            </p>
+        </div>
+    </div>
 
-    <section class="section-box">
-        <h2>What Our Clients Say</h2>
-        <p>Client A: "Daedalus Engineering Designs delivered our project with incredible attention to detail and professionalism."</p>
-        <p>Client B: "The team’s expertise and dedication made our vision a reality. Highly recommended!"</p>
-    </section>
-
+    <div class="added_margin"></div>
     <div id="main-footer"></div>
+    
     <script>
         fetch('footer.html')
             .then(response => response.text())

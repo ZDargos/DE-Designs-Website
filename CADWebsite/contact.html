@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Daedalus Engineering Designs - CAD, Engineering Drawings, and 3D Prototypes">
+    <meta name="keywords" content="CAD, Engineering Drawings, 3D Prototypes, Mechanical Engineering, Aerospace Engineering">
+    <meta name="author" content="Daedalus Engineering Designs">
+    <title>Contact - Daedalus Engineering Designs</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --menu-font: "Quicksand", serif;
+            --menu-font-size: 28px;
+            --menu-font-color: #ffffff;
+        }
+        body {
+            font-family: var(--menu-font);
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #235676;
+            padding: 15px 50px;
+        }
+        header img {
+            height: 50px;
+        }
+        .menu-divider {
+            width: 2px;
+            height: 40px;
+            background-color: white;
+            margin: 0 25px;
+        }
+        .MenuBarName {
+            color: var(--menu-font-color);
+            font-size: var(--menu-font-size);
+            font-weight: 200;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin-left: 35px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: var(--menu-font-color);
+            font-size: 22px;
+            font-weight: 300;
+        }
+        nav ul li a.active {
+            color: #ffcc00;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        input, textarea {
+            width: 97%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #235676;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #1d4560;
+        }
+        footer {
+            background-color: #235676;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+            <img src="logo.png" alt="Company Logo">
+            <div class="menu-divider"></div>
+            <h1 class="MenuBarName">Daedalus Engineering Designs</h1>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h2>Contact Us</h2>
+        <form action="https://formsubmit.co/a7f9cd10efc5dc09e198ff408e2fdd15" method="post">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="text" name="subject" placeholder="Subject" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+
+    <div class="added_margin"></div>
+    <div id="main-footer"></div>
+    
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                console.log('Footer fetched successfully');
+                document.getElementById('main-footer').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error fetching footer:', error);
+            });
+    </script>
+
+</body>
+</html>
