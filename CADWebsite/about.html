@@ -66,6 +66,9 @@
         }
         
         .content-container {
+            opacity: 0;
+            transform: translateY(30px); /* Moves down initially */
+            transition: opacity 1s ease-out, transform 1s ease-out;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
@@ -73,18 +76,37 @@
             max-width: 80%;
             margin: 0 auto;
         }
+
+        .content-container.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
         .content-box {
+            opacity: 0;
+            transform: translateY(30px); /* Moves down initially */
+            transition: opacity 1s ease-out, transform 1s ease-out;
             background: white;
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+
+        .content-box.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
         .carousel {
+            
             position: relative;
             display: inline-block;
             padding-inline: 10px;
             border-radius: 10px;
             
+        }
+
+        .carousel.show {
+            opacity: 1;
+            transform: translateY(0);
         }
         .carousel-title {
             font-size: 20px;
@@ -241,6 +263,43 @@
                 console.error('Error fetching footer:', error);
             });
 
+        //Add fade in effect for the content-container class
+        document.addEventListener("DOMContentLoaded", function () {
+            const serviceItems = document.querySelectorAll(".content-container");
+
+            const observer = new IntersectionObserver(
+                (entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("show"); // Add the 'show' class when visible
+                            observer.unobserve(entry.target); // Stop observing once shown
+                        }
+                    });
+                },
+                { threshold: 0.2 } // Trigger when 20% of the element is visible
+            );
+
+            serviceItems.forEach(item => observer.observe(item));
+        });
+
+        //Add fade in effect for the content-box class
+        document.addEventListener("DOMContentLoaded", function () {
+            const serviceItems = document.querySelectorAll(".content-box");
+
+            const observer = new IntersectionObserver(
+                (entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("show"); // Add the 'show' class when visible
+                            observer.unobserve(entry.target); // Stop observing once shown
+                        }
+                    });
+                },
+                { threshold: 0.2 } // Trigger when 20% of the element is visible
+            );
+
+            serviceItems.forEach(item => observer.observe(item));
+        });
     </script>
 
     
