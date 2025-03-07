@@ -296,26 +296,7 @@
         }
         //Add fade in effect for all desired classes
         const fadeClasses = [".content-box", ".content-container", ".text-box", ".about-box"];
-        for (let i = 0; i < fadeClasses.length; i++){
-            document.addEventListener("DOMContentLoaded", function () {
-            const serviceItems = document.querySelectorAll(fadeClasses[i]);
-
-            const observer = new IntersectionObserver(
-                (entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add("show"); // Add the 'show' class when visible
-                           // observer.unobserve(entry.target); // Uncomment if you want it to not hide again once it is shown
-                        }else {
-                        entry.target.classList.remove("show"); // Hide when out of view
-                    }
-                    });
-                },
-                { threshold: 0.2 } // Trigger when 20% of the element is visible
-            );
-            serviceItems.forEach(item => observer.observe(item));
-        });
-        }
+        add_fades(fadeClasses);
         
         alter_light_dark_bg("projects1-2", 0.3, ["background-text-1", "background-text-2"], ["project-1-box","project-2-box","project-3-box","project-4-box"]);
 

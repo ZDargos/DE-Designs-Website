@@ -12,6 +12,7 @@
     --menu-light-bg-text-color: #020d16;
     --menu-light-bg-box-color: #ACA9A3;
     --menu-dark-bg-box-color: #2D3438;
+    --menu-header-footer-color: #1D4964;
 }
 body {
     font-family: var(--menu-font);
@@ -122,7 +123,7 @@ section {
 }
 
 footer {
-    background-color: #235676;
+    background-color: var(--menu-header-footer-color);
     color: white;
     text-align: center;
     padding: 1px;
@@ -156,12 +157,22 @@ header {
     display:flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #1D4964;
+    background-color: var(--menu-header-footer-color);
     padding-top: 10px;
     padding-left: 20px;
     padding-right: 10px;
     padding-bottom: 10px;
+    transition: padding 0.3s ease-in-out, transform 0.3s ease-in-out;
+    transform-origin: top center;
 }
+
+header.shrink {
+    padding-bottom: 5px;
+    transform: translateY(-50px);
+   
+}
+
+
 header img {
     height: 3.25vw;
 }
