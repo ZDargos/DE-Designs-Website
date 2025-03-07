@@ -1,9 +1,10 @@
 :root {
-    --menu-font: "Quicksand", serif;
+    --menu-font: Items, Times New Roman, sans-serif;
     --menu-font-size: 28px;
     --menu-font-color: #ffffff;
     --menu-main-bg-color: #030d15;
     --menu-main-text-box-color: #3f6279;
+    --menu-main-text-box-bg-color: #7899ae;
     --menu-main-text-color: #E7ECEF;
     --menu-title-text-color: #A3CEF1;
 }
@@ -21,13 +22,19 @@ Fonts
 */
 
 h1 {
-    font-size: 3em;
-    margin: 0;
+    font-family: Items, Times New Roman, sans-serif;
+    font-size: 2.75rem;
+    font-weight: 300;
+    line-height: 1.05;
 }
 
+h2 {
+    color: var(--menu-title-text-color);
+}
 h3 {
     font-size: 3em;
     margin: 0;
+    
 }
 
 h4 {
@@ -54,7 +61,7 @@ h7 { /* Basic text box text */
 }
 
 h8 { /* Small text */
-    font-family:sans-serif;
+    font-family:GT America Lig-898330cec9f6e459;
     color:var(--menu-main-text-color);
     font-size: 2ex;
 }
@@ -82,16 +89,19 @@ nav ul li {
 }
 
 nav ul li a {
-    text-decoration: none;
-    color: var(--menu-font-color);
-    font-size: 22px;
+    font-family: Gt America Standard, sans-serif;
+    font-size: 1rem;
     font-weight: 300;
+    line-height: 1.5;
+    color: var(--menu-font-color);
+    text-decoration: none;
     
 }
 
 
 
 nav ul li a.active {
+    
     color: #ffcc00;
 }
 

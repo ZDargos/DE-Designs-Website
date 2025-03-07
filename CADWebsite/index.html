@@ -25,12 +25,17 @@
             gap: 20px;
             padding: 50px;
             text-align: center;
+            background: var(--menu-main-bg-color);
         }
 
         .service-item {
             opacity: 0;
             transform: translateY(30px); /* Moves down initially */
             transition: opacity 1s ease-out, transform 1s ease-out;
+            background: var(--menu-main-bg-color);
+            border: 2px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(77, 68, 68, 0.5);
         }
         .service-item img {
             width: 100%;
@@ -47,7 +52,7 @@
             opacity: 0;
             transform: translateY(30px); /* Moves down initially */
             transition: opacity 1s ease-out, transform 1s ease-out;
-            background: white;
+            background: var(--menu-main-text-box-bg-color);
             margin: 20px auto;
             padding: 30px;
             border-radius: 10px;
@@ -110,17 +115,19 @@
         <div class="service-item">
             <h2>3D Model Creation</h2>
             <img src="images/home-photos/photo1.jpeg" alt="3D CAD Design">
-            <p>Using state-of-the-art Computer Aided Design (CAD) software, we create highly accurate and customized 3D models tailored to your exact specifications. These digital models transform your vision into reality, serving as the foundation for product development and prototyping. We deliver your preferred file formats — including STL, STEP, SLDPRT, SLDASM, OBJ, F3D, and 3MF — and design around critical tolerances to ensure manufacturability and performance.</p>
+            <h8>Using state-of-the-art Computer Aided Design (CAD) software, we create highly accurate and customized 3D models tailored to your exact specifications. These digital models transform your vision into reality, serving as the foundation for product development and prototyping. We deliver your preferred file formats — including STL, STEP, SLDPRT, SLDASM, OBJ, F3D, and 3MF — and design around critical tolerances to ensure manufacturability and performance.
+                </h8>
         </div>
         <div class="service-item">
             <h2>Engineering Drawings</h2>
             <img src="images/home-photos/Drawing1.png" alt="Engineering Drawings">
-            <p>Our detailed engineering drawings follow industry standards to bring your 3D CAD models to life by providing the precise specifications needed for fabrication. These drawings act as an essential extension of the digital models, translating complex designs into clear, manufacturable blueprints. Whether your project requires machining, 3D printing, or injection molding for tool and mold creation, our technical drawings ensure that every dimension, tolerance, and material detail is accurately conveyed for flawless production.</p>
+            <h8>Our detailed engineering drawings follow industry standards to bring your 3D CAD models to life by providing the precise specifications needed for fabrication. These drawings act as an essential extension of the digital models, translating complex designs into clear, manufacturable blueprints. Whether your project requires machining, 3D printing, or injection molding for tool and mold creation, our technical drawings ensure that every dimension, tolerance, and material detail is accurately conveyed for flawless production.
+            </h8>
         </div>
         <div class="service-item">
             <h2>3D Printed Prototypes</h2>
             <img src="images/home-photos/photo3.jpeg" alt="3D Printed Prototype">
-            <p>Visualize and test your design with high-quality 3D printed rapid prototypes.</p>
+            <h8>Visualize and test your design with high-quality 3D printed rapid prototypes.</h8>
         </div>
     </section>
 
