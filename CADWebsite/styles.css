@@ -8,6 +8,8 @@
     --menu-main-text-color: #E7ECEF;
     --menu-title-text-color: #A3CEF1;
     --menu-light-bg-color: #ece3d8;
+    --menu-dark-bg-text-color: #E7ECEF;
+    --menu-light-bg-text-color: #020d16;
 }
 body {
     font-family: var(--menu-font);
@@ -58,8 +60,7 @@ h6 {
 }
 
 h7 { /* Basic text box text */
-    font-family:sans-serif;
-    color:var(--menu-main-text-color);
+    font-family:GT America Lig-898330cec9f6e459;
     font-size: 2.5ex;
 }
 

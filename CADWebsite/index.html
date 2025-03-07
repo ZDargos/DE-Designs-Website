@@ -159,7 +159,6 @@
         .center {
             font-size: 4.5em;
             font-family: var(--menu-font);
-            
             opacity: 1;
             transform: translateY(0) scale(1);
             background: rgba(236, 227, 216, 0.1); /* Semi-transparent highlight */
@@ -220,7 +219,7 @@
     <div class="header_sep"></div>
     <div class="header_sep"></div>
     <div class="header_sep"></div>
-    <section class="services-grid">
+    <section class="services-grid" id="services-start">
         <div class="service-item">
             <h2>3D Model Creation</h2>
             <img src="images/home-photos/photo1.jpeg" alt="3D CAD Design">
@@ -352,27 +351,9 @@
         }
 
         setInterval(cycleText, 5000); // Smooth cycle every 5s
-        function getCSSRootVariable(variableName) {
-            return getComputedStyle(document.documentElement).getPropertyValue(variableName);
-        }
-        document.addEventListener("DOMContentLoaded", function () {
-            const triggerSection = document.querySelector(".services-grid"); // Section that triggers the color change
-            const body = document.body;
-            const observer = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            body.style.backgroundColor = getCSSRootVariable('--menu-light-bg-color').trim(); // Change to dark background
-                        } else {
-                            body.style.backgroundColor = getCSSRootVariable('--menu-main-bg-color').trim(); // Revert to default (or specify a color)
-                        }
-                    });
-                },
-                { threshold: 0.7 } // Adjust threshold as needed (0.5 means 50% of the section must be visible)
-            );
+        
+        change_background("services-start", getCSSRootVariable('--menu-main-bg-color').trim(), getCSSRootVariable('--menu-light-bg-color').trim(), 0.7);
 
-            observer.observe(triggerSection);
-        });
 
     </script>
 </body>
