@@ -27,13 +27,15 @@
         }
         
         .content-container {
+            position: static;
             opacity: 0;
             transform: translateY(30px); /* Moves down initially */
             transition: opacity 1s ease-out, transform 1s ease-out;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
-            padding: 50px;
+            padding-top: 5px;
+            padding-bottom: 0px;
             max-width: 80%;
             margin: 0 auto;
         }
@@ -52,13 +54,28 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
+        .text-box {
+            opacity: 0;
+            transform: translateY(30px); /* Moves down initially */
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            background: rgba(255, 255, 255, 0);
+         
+            padding: 0px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
+        }
+
+        .text-box.show {
+            opacity:1;
+            transform: translateY(0);
+        }
+
         .content-box.show {
             opacity: 1;
             transform: translateY(0);
         }
         .carousel {
-            
-            position: relative;
+            position: static;
             display: inline-block;
             padding-inline: 10px;
             border-radius: 10px;
@@ -74,10 +91,9 @@
             margin-bottom: 10px;
         }
         .carousel img {
-            width: 20vw;
-            height: 15vw;
+            width: 25vw;
+            height: 18.75vw;
             object-fit: scale-down;
-            
             border-radius: 10px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             display: block;
@@ -87,15 +103,18 @@
         }
         
 
-        .carousel > .carousel img:active {
+        .carousel > img:active {
             width:fit-content;
             position: fixed;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%) scale(2.5); /* Centers and enlarges */
+            transform: translate(-50%, -50%) scale(1.5); /* Centers and enlarges */
+            max-width: 70%;
+            max-height: auto;
             z-index: 1000; /* Puts it above everything */
             background: rgba(0, 0, 0, 0.8); /* Adds a dark overlay effect */
-            padding: 10px; /* Optional padding around image */
+            padding: 2%; /* Optional padding around image */
+            
             border-radius: 10px;
         }
         .carousel img:active ~ button {
@@ -113,10 +132,10 @@
             border-radius: 5px;
         }
         .carousel button.prev {
-            left: 0px;
+            left: 10%;
         }
         .carousel button.next {
-            right: 0px;
+            right: 10%;
         }
         
        
@@ -131,33 +150,24 @@
 
     <div class="header_sep"></div>
 
+    
+    <section class="content-box">
+        <div class="blockTitle">
+            <h1>About Us</h1>
+        </div>
+        <div class="blockText">
+            <p>Welcome to Daedalus Engineering Designs! I’m Jack Ceriello, a Mechanical Engineer with a concentration in Aerospace Engineering and a deep passion for innovative design. I am currently studying at Stevens Institute of Technology and have received honors and merit-based awards for my academic achievements. Through years of experience with CAD across multiple platforms, I’ve honed my ability to create effective engineering solutions that tackle unique problems. Whether it’s designing parts and tools to solve everyday challenges or developing products for companies like yours, I bring a full toolbox of skills and techniques to every project.
+            At Daedalus Engineering Designs, I focus on ensuring that every part is designed with its intended fabrication process in mind. I have extensive experience working with additive manufacturing (most notably FDM and SLA (resin) 3D printing) and I’ve designed numerous parts optimized for injection molding, laser cutting, and subtractive manufacturing (machining). My goal is to deliver designs that are not only functional and efficient but also perfectly suited to your production methods.
+            Let’s bring your ideas to life. Whether you need CAD files, engineering drawings, or 3D-printed prototypes, I’m here to help turn your vision into reality.
+            </p>
+        </div>
+    </section>
+    
+    <div style="padding: 50px;"></div>
+
+    <!-- First two carousels in their boxes -->
     <div class="content-container">
         <section class="content-box">
-            <div class="blockTitle">
-                <h1>About Us</h1>
-            </div>
-            <div class="blockText">
-                <p>Welcome to Daedalus Engineering Designs! I’m Jack Ceriello, a Mechanical Engineer with a concentration in Aerospace Engineering and a deep passion for innovative design. I am currently studying at Stevens Institute of Technology and have received honors and merit-based awards for my academic achievements. Through years of experience with CAD across multiple platforms, I’ve honed my ability to create effective engineering solutions that tackle unique problems. Whether it’s designing parts and tools to solve everyday challenges or developing products for companies like yours, I bring a full toolbox of skills and techniques to every project.
-                At Daedalus Engineering Designs, I focus on ensuring that every part is designed with its intended fabrication process in mind. I have extensive experience working with additive manufacturing (most notably FDM and SLA (resin) 3D printing) and I’ve designed numerous parts optimized for injection molding, laser cutting, and subtractive manufacturing (machining). My goal is to deliver designs that are not only functional and efficient but also perfectly suited to your production methods.
-                Let’s bring your ideas to life. Whether you need CAD files, engineering drawings, or 3D-printed prototypes, I’m here to help turn your vision into reality.
-                </p>
-            </div>
-        </section>
-        <section class="content-box">
-            <div class="blockTitle">
-                <h1>Previous Projects</h1>
-            </div>
-            <div class="blockText">
-                <p>Highlight some of your most exciting and successful projects here, showcasing your expertise and creativity.</p>
-            </div>
-        </section>
-    </div>
-
-    <section class="content-box" style="max-width: 80%; margin: 20px auto;">
-        <div class="blockTitle">
-            <h1>Project Photo Gallery</h1>
-        </div>
-        <div class="photo-gallery" style="display: flex; justify-content: space-between;">
             <div class="carousel" style="flex: 1; text-align: center;">
                 <h3 class="carousel-title">Project 1</h3>
                 <div class="carousel" id="project1">
@@ -166,6 +176,9 @@
                     <button class="next" onclick="nextImage('project1')">❯</button>
                 </div>
             </div>
+            
+        </section>
+        <section class="content-box">
             <div class="carousel" style="flex: 1; text-align: center;">
                 <h3 class="carousel-title">Project 2</h3>
                 <div class="carousel" id="project2">
@@ -174,6 +187,35 @@
                     <button class="next" onclick="nextImage('project2')">❯</button>
                 </div>
             </div>
+        </section>
+    </div>
+
+    <!-- Descriptions for projects 1 and 2 -->
+    <div class="content-container">
+        <section class="text-box">
+            <h3 class="carousel-title">Project 1</h3>
+            <p>Welcome to Daedalus Engineering Designs! I’m Jack Ceriello, a Mechanical Engineer with a concentration in Aerospace Engineering and a deep passion for innovative design. I am currently studying at Stevens Institute of Technology and have received honors and merit-based awards for my academic achievements. Through years of experience with CAD across multiple platforms, I’ve honed my ability to create effective engineering solutions that tackle unique problems. Whether it’s designing parts and tools to solve everyday challenges or developing products for companies like yours, I bring a full toolbox of skills and techniques to every project.
+                At Daedalus Engineering Designs, I focus on ensuring that every part is designed with its intended fabrication process in mind. I have extensive experience working with additive manufacturing (most notably FDM and SLA (resin) 3D printing) and I’ve designed numerous parts optimized for injection molding, laser cutting, and subtractive manufacturing (machining). My goal is to deliver designs that are not only functional and efficient but also perfectly suited to your production methods.
+                Let’s bring your ideas to life. Whether you need CAD files, engineering drawings, or 3D-printed prototypes, I’m here to help turn your vision into reality.
+             </p>
+            
+        </section>
+        <section class="text-box">
+            <div class="carousel" style="flex: 1; text-align: center;">
+                <h3 class="carousel-title">Project 2</h3>
+                <p>Welcome to Daedalus Engineering Designs! I’m Jack Ceriello, a Mechanical Engineer with a concentration in Aerospace Engineering and a deep passion for innovative design. I am currently studying at Stevens Institute of Technology and have received honors and merit-based awards for my academic achievements. Through years of experience with CAD across multiple platforms, I’ve honed my ability to create effective engineering solutions that tackle unique problems. Whether it’s designing parts and tools to solve everyday challenges or developing products for companies like yours, I bring a full toolbox of skills and techniques to every project.
+                    At Daedalus Engineering Designs, I focus on ensuring that every part is designed with its intended fabrication process in mind. I have extensive experience working with additive manufacturing (most notably FDM and SLA (resin) 3D printing) and I’ve designed numerous parts optimized for injection molding, laser cutting, and subtractive manufacturing (machining). My goal is to deliver designs that are not only functional and efficient but also perfectly suited to your production methods.
+                    Let’s bring your ideas to life. Whether you need CAD files, engineering drawings, or 3D-printed prototypes, I’m here to help turn your vision into reality.
+                 </p>
+            </div>
+        </section>
+    </div>
+
+
+    <div style="padding: 100px;"></div>
+    <!-- Second two carousels in their boxes -->
+    <div class="content-container">
+        <section class="content-box">
             <div class="carousel" style="flex: 1; text-align: center;">
                 <h3 class="carousel-title">Project 3</h3>
                 <div class="carousel" id="project3">
@@ -182,10 +224,39 @@
                     <button class="next" onclick="nextImage('project3')">❯</button>
                 </div>
             </div>
-        </div>
-        
-    </section>
+        </section>
+        <section class="content-box">
+            <div class="carousel" style="flex: 1; text-align: center;">
+                <h3 class="carousel-title">Project 2</h3>
+                <div class="carousel" id="project2">
+                    <img class = slide, id="project2-image" src="images/project-images/project2-1.jpeg" alt="Project 2">
+                    <button class="prev" onclick="prevImage('project2')">❮</button>
+                    <button class="next" onclick="nextImage('project2')">❯</button>
+                </div>
+            </div>
+        </section>
+    </div>
     
+     <!-- Descriptions for projects 3 and 4 -->
+     <div class="content-container">
+        <section class="text-box">
+            <h3 class="carousel-title">Project 3</h3>
+            <p>Welcome to Daedalus Engineering Designs! I’m Jack Ceriello, a Mechanical Engineer with a concentration in Aerospace Engineering and a deep passion for innovative design. I am currently studying at Stevens Institute of Technology and have received honors and merit-based awards for my academic achievements. Through years of experience with CAD across multiple platforms, I’ve honed my ability to create effective engineering solutions that tackle unique problems. Whether it’s designing parts and tools to solve everyday challenges or developing products for companies like yours, I bring a full toolbox of skills and techniques to every project.
+                At Daedalus Engineering Designs, I focus on ensuring that every part is designed with its intended fabrication process in mind. I have extensive experience working with additive manufacturing (most notably FDM and SLA (resin) 3D printing) and I’ve designed numerous parts optimized for injection molding, laser cutting, and subtractive manufacturing (machining). My goal is to deliver designs that are not only functional and efficient but also perfectly suited to your production methods.
+                Let’s bring your ideas to life. Whether you need CAD files, engineering drawings, or 3D-printed prototypes, I’m here to help turn your vision into reality.
+             </p>
+            
+        </section>
+        <section class="text-box">
+            <div class="carousel" style="flex: 1; text-align: center;">
+                <h3 class="carousel-title">Project 4</h3>
+                <p>Welcome to Daedalus Engineering Designs! I’m Jack Ceriello, a Mechanical Engineer with a concentration in Aerospace Engineering and a deep passion for innovative design. I am currently studying at Stevens Institute of Technology and have received honors and merit-based awards for my academic achievements. Through years of experience with CAD across multiple platforms, I’ve honed my ability to create effective engineering solutions that tackle unique problems. Whether it’s designing parts and tools to solve everyday challenges or developing products for companies like yours, I bring a full toolbox of skills and techniques to every project.
+                    At Daedalus Engineering Designs, I focus on ensuring that every part is designed with its intended fabrication process in mind. I have extensive experience working with additive manufacturing (most notably FDM and SLA (resin) 3D printing) and I’ve designed numerous parts optimized for injection molding, laser cutting, and subtractive manufacturing (machining). My goal is to deliver designs that are not only functional and efficient but also perfectly suited to your production methods.
+                    Let’s bring your ideas to life. Whether you need CAD files, engineering drawings, or 3D-printed prototypes, I’m here to help turn your vision into reality.
+                 </p>
+            </div>
+        </section>
+    </div>
     <div class="added_margin"></div>
     <div id="main-footer"></div>
     
@@ -208,31 +279,11 @@
             index[project] = (index[project] - 1 + images[project].length) % images[project].length;
             document.querySelector(`#${project} img`).src = images[project][index[project]];
         }
-
-        //Add fade in effect for the content-container class
-        document.addEventListener("DOMContentLoaded", function () {
-            const serviceItems = document.querySelectorAll(".content-container");
-
-            const observer = new IntersectionObserver(
-                (entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add("show"); // Add the 'show' class when visible
-                           // observer.unobserve(entry.target); // Uncomment if you want it to not hide again once it is shown
-                        }else {
-                        entry.target.classList.remove("show"); // Hide when out of view
-                    }
-                    });
-                },
-                { threshold: 0.2 } // Trigger when 20% of the element is visible
-            );
-
-            serviceItems.forEach(item => observer.observe(item));
-        });
-
-        //Add fade in effect for the content-box class
-        document.addEventListener("DOMContentLoaded", function () {
-            const serviceItems = document.querySelectorAll(".content-box");
+        //Add fade in effect for all desired classes
+        const fadeClasses = [".content-box", ".content-container", ".text-box"];
+        for (let i = 0; i < fadeClasses.length; i++){
+            document.addEventListener("DOMContentLoaded", function () {
+            const serviceItems = document.querySelectorAll(fadeClasses[i]);
 
             const observer = new IntersectionObserver(
                 (entries, observer) => {
@@ -247,9 +298,9 @@
                 },
                 { threshold: 0.2 } // Trigger when 20% of the element is visible
             );
-
             serviceItems.forEach(item => observer.observe(item));
         });
+        }
     </script>
 
     
