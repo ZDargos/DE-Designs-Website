@@ -14,24 +14,11 @@
     <link rel="stylesheet" href="styles.css">
     <script src="base-scripts.js"></script>
     <style>
-        :root {
-            --menu-font: "Quicksand", serif;
-            --menu-font-size: 28px;
-            --menu-font-color: #ffffff;
-        }
-        body {
-            font-family: var(--menu-font);
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            text-align: center;
-        }
-
         .container {
             max-width: 600px;
             margin: 50px auto;
             padding: 20px;
-            background: white;
+            background: var(--menu-main-text-box-color);
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
         }
@@ -40,6 +27,7 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
+          
         }
         input, textarea {
             width: 97%;
@@ -87,6 +75,7 @@
             justify-content: center;
             font-size: 18px;
             font-weight: bold;
+            color: var(--menu-main-text-color)
         }
         @keyframes spinMessages {
             0% { transform: translateY(100); }
@@ -106,10 +95,10 @@
     <div class="container">
         <h2>Contact Us</h2>
         <form action="https://formsubmit.co/a7f9cd10efc5dc09e198ff408e2fdd15" method="post">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <input type="text" name="subject" placeholder="Subject" required>
-            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <input type="text" name="name" placeholder="Your Name" required style="background-color: lightblue;">
+            <input type="email" name="email" placeholder="Your Email" required style="background-color: lightblue;">
+            <input type="text" name="subject" placeholder="Subject" required style="background-color: lightblue;">
+            <textarea name="message" rows="5" placeholder="Your Message" required style="background-color: lightblue;"></textarea>
             <input type="file" multiple id="myFile" name="filename">
             <button type="submit">Send Message</button>
         </form>
@@ -124,7 +113,8 @@
             <div class="cycling-message">We can help!</div>
         </div>
     </div>
-    <p class="static-message">Put down your contact information, project needs, timeline, manufacturing type, and any other details you have to get a reasonable quote that won’t break the bank.</p>
+    <div style="padding: 25px;"></div>
+    <h8>Put down your contact information, project needs, timeline, manufacturing type, and any other details you have to get a reasonable quote that won’t break the bank.</h8>
     
     
     <div class="added_margin"></div>
