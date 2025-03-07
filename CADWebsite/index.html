@@ -200,12 +200,18 @@
         }
 
         .section-header {
+            opacity: 0;
+            transform: translateY(30px); /* Moves down initially */
+            transition: opacity 1s ease-out, transform 1s ease-out, color 1.5s ease-in-out;
             font-size: 4.5em;
             font-family: var(--menu-font);
-            opacity: 1;
             border-color:white;
             padding: 0px;
-            transition: color 1.5s ease-in-out;
+        }
+
+        .section-header.show {
+            opacity: 1;
+            transform: translateY(0);
         }
         
     </style>
@@ -288,7 +294,8 @@
     <script>
 
         const fadeClasses = [".service-item", ".description-grid", ".services-grid"];
-        add_fades(fadeClasses);
+        add_fades(fadeClasses, 0.2);
+        add_fades([".section-header"], 0.8);
 
         let phrases = ["High Costs? We Do Better.", "Your Designs, Your Property.", "Big Ideas, Small Budgets Welcome.", 
                         "Engineering Without the Overhead.", "Precision. Ownership. Affordability."];

@@ -13,27 +13,218 @@
     <link rel="stylesheet" href="styles.css">
     <script src="base-scripts.js"></script>
     <style>
-        :root {
-            --menu-font: "Quicksand", serif;
-            --menu-font-size: 28px;
-            --menu-font-color: #ffffff;
+        .front-page-container {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 500px;
+                padding: 50px;
+            }
+
+        .front-page-left {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 20%;
+            border-right: 3px solid var(--menu-title-text-color);
+            padding-right: 40px;
         }
-        body {
-            font-family: var(--menu-font);
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
+
+        .front-page-left img {
+            max-width: 80%;
+            height: auto;
+        }
+
+        .front-page-right {
+            width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero {
             text-align: center;
+            color: var(--menu-title-text-color);
+            padding: 30px 0;
+            font-weight: bold;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 50px;
+            text-align: center;
+            border-radius: 15px;
+            opacity: 0;
+            transform: translateY(30px); /* Moves down initially */
+            transition: opacity 1s ease-out, transform 1s ease-out, background-color 1s ease-in-out;
+        }
+
+        .services-grid.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .service-item {
+            opacity: 0;
+            transform: translateY(30px); /* Moves down initially */
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            background: var(--menu-main-bg-color);
+            border: 5px;
+            border-radius: 25px;
+            box-shadow: 0 4px 8px rgba(126, 113, 113, 0.874);
+            padding: 15px;
+        }
+        .service-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: scale-down;
+            border-radius: 10px;
+            padding-bottom: 10px;
+
+        }
+        .service-item.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .section-box {
+            opacity: 0;
+            transform: translateY(30px); /* Moves down initially */
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            background: var(--menu-main-text-box-bg-color);
+            margin: 20px auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 80%;
+        }
+
+        .section-box.show {
+            opacity: 1;
+            transform: translateY(0);
         }
         
+
+        .description-grid {
+            opacity: 0;
+            transform: translateY(30px); /* Moves down initially */
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            padding: 20px;
+            margin-top: 0px;
+            background-color: rgba(0,0,0,0);
+        }
+
+        .box1,
+        .box2 {
+            grid-column: 1;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 2s ease-in-out;
+        }
+
+        .tall-box {
+            grid-column: 2;
+            grid-row: 1 / span 2; /* Span across two rows */
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 2s ease-in-out;
+        }
+        
+        .description-grid.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .text-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            perspective: 500px;
+            display: flex; justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .text {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            transition: transform 1.5s ease-in-out, opacity 1.5s ease-in-out, font-size 1.5s ease-in-out, background-color .75s ease-in-out;
+            opacity: 0.5;
+            color: var(--menu-title-text-color);
+            font-size: 3px;
+            padding: 10px 20px;
+            border-radius: 25px; /* Rounded edges */
+            max-width: 90%;
+        }
+
+        .center {
+            font-size: 4.5em;
+            font-family: var(--menu-font);
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            background: rgba(236, 227, 216, 0.1); /* Semi-transparent highlight */
+            border: 200px;
+            border-color:white;
+            
+        }
+
+
+        .above {
+            font-size: 2.5em;
+            transform: translateY(-3em) scale(0.7);
+            opacity: 0.2;
+        }
+
+        .below {
+            font-size: 2.5em;
+            transform: translateY(3em) scale(0.7);
+            opacity: 0.2;
+        }
+
+        .exiting {
+            transform: translateY(-0.5em) scale(0.5) rotateX(-30deg);
+            opacity: 0;
+        }
+
+        .entering {
+            transform: translateY(0em) scale(0.5);
+            opacity: 0;
+        }
+
+        .section-header {
+            opacity: 0;
+            transform: translateY(30px); /* Moves down initially */
+            transition: opacity 1s ease-out, transform 1s ease-out, color 1.5s ease-in-out;
+            font-size: 4.5em;
+            font-family: var(--menu-font);
+            border-color:white;
+            padding: 0px;
+        }
+
+        .section-header.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        
         .content-container {
+            position: static;
             opacity: 0;
             transform: translateY(30px); /* Moves down initially */
             transition: opacity 1s ease-out, transform 1s ease-out;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
-            padding: 50px;
+            padding-top: 5px;
+            padding-bottom: 0px;
             max-width: 80%;
             margin: 0 auto;
         }
@@ -45,11 +236,47 @@
         .content-box {
             opacity: 0;
             transform: translateY(30px); /* Moves down initially */
-            transition: opacity 1s ease-out, transform 1s ease-out;
-            background: white;
+            transition: opacity 1s ease-out, transform 1s ease-out, background-color 1s ease-in-out;
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-box {
+            opacity: 0;
+            transform: translateY(30px); /* Moves down initially */
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            background: var(--menu-main-bg-color);/*var(--menu-main-text-box-color);*/
+            padding: 2px 30px 30px 30px;
+            border-radius: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%; /* Set the width of the box */
+            max-width: 800px; /* Optionally set a maximum width */
+            margin: 0 auto;
+            
+            
+        }
+
+        .about-box.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .text-box {
+            opacity: 0;
+            transform: translateY(30px); /* Moves down initially */
+            transition: opacity 1s ease-out, transform 1s ease-out, color 1s ease;
+            background: rgba(255, 255, 255, 0); /* Make background transparent */
+         
+            padding: 0px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
+
+        }
+
+        .text-box.show {
+            opacity:1;
+            transform: translateY(0);
         }
 
         .content-box.show {
@@ -57,12 +284,10 @@
             transform: translateY(0);
         }
         .carousel {
-            
-            position: relative;
+            position: static;
             display: inline-block;
             padding-inline: 10px;
             border-radius: 10px;
-            padding-top: 5%;
             
         }
 
@@ -75,10 +300,9 @@
             margin-bottom: 10px;
         }
         .carousel img {
-            width: 40vw;
-            height: 30vw;
+            width: 25vw;
+            height: 18.75vw;
             object-fit: scale-down;
-            
             border-radius: 10px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             display: block;
@@ -88,15 +312,18 @@
         }
         
 
-        .carousel > .carousel img:active {
+        .carousel > img:active {
             width:fit-content;
             position: fixed;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%) scale(1.25); /* Centers and enlarges */
+            transform: translate(-50%, -50%) scale(1.5); /* Centers and enlarges */
+            max-width: 70%;
+            max-height: auto;
             z-index: 1000; /* Puts it above everything */
             background: rgba(0, 0, 0, 0.8); /* Adds a dark overlay effect */
-            padding: 10px; /* Optional padding around image */
+            padding: 2%; /* Optional padding around image */
+            
             border-radius: 10px;
         }
         .carousel img:active ~ button {
@@ -114,226 +341,260 @@
             border-radius: 5px;
         }
         .carousel button.prev {
-            left: 0px;
+            left: 10%;
         }
         .carousel button.next {
-            right: 0px;
+            right: 10%;
+        }
+
+        .jack-photo {
+            align-content: center;
+            height: auto;
+            margin: 0 auto;
+            color: var(--menu-title-text-color);
         }
         
-            .project {
-        text-align: center;
-        margin-bottom: 50px;
-    }
-
-    /* Project Box Styling */
-    .project-box {
-        
-        text-align: center;
-        background: rgba(249, 249, 249, 0.0); /* Adjust transparency here */
-        padding: 20px;
-        border-radius: 0px;
-        
-        height: 750px;
-        max-width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .background-section-1 {
-        opacity: 0;
-        transform: translateY(30px); /* Moves down initially */
-        transition: opacity 1s ease-out, transform 1s ease-out;
-        background-image: url('images/project-images/project-1-background.png'); /* Replace with the path to your image */
-        background-size: cover; /* Cover the entire section */
-        background-position: center; /* Center the image */
-        background-repeat: no-repeat; /* Prevent the image from repeating */
-        padding: 50px; /* Add some padding for content */
-        color: white; /* Ensure text is readable */
-        text-align: center; /* Center the text */
-        width: 100%;
-    }
-
-    .background-section-2 {
-        opacity: 0;
-        transform: translateY(30px); /* Moves down initially */
-        transition: opacity 1s ease-out, transform 1s ease-out;
-        background-image: url('images/project-images/project-2-background.png'); /* Replace with the path to your image */
-        background-size: cover; /* Cover the entire section */
-        background-position: center; /* Center the image */
-        background-repeat: no-repeat; /* Prevent the image from repeating */
-        padding: 50px; /* Add some padding for content */
-        color: white; /* Ensure text is readable */
-        text-align: center; /* Center the text */
-        width: 100%;
-    }
-
-    .background-section-3 {
-        opacity: 0;
-        transform: translateY(30px); /* Moves down initially */
-        transition: opacity 1s ease-out, transform 1s ease-out;
-        background-image: url('images/project-images/project-1-background.png'); /* Replace with the path to your image */
-        background-size: cover; /* Cover the entire section */
-        background-position: center; /* Center the image */
-        background-repeat: no-repeat; /* Prevent the image from repeating */
-        padding: 50px; /* Add some padding for content */
-        color: white; /* Ensure text is readable */
-        text-align: center; /* Center the text */
-        width: 100%;
-    }
-
-    .background-section-1.show,
-    .background-section-2.show,
-    .background-section-3.show {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    /* Image Container for Triangle Layout */
-    .image-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 70px;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-    }
-
-    /* Styling for Images */
-    .image-container img {
-        width: 100%;
-        max-width: 250px;
-        height: auto;
-        border-radius: 10px;
-        transition: transform 0.3s ease;
-        cursor: pointer;
-    }
-
-    /* Flipped Triangle Layout */
-
-    .image-container img:nth-child(1),
-    .image-container img:nth-child(2) {
-        grid-row: 1; /* Top row */
-        justify-self: center;
-    }
-
-    .image-container img:nth-child(4) {
-        grid-column: span 2; /* Bottom image spans two columns */
-        justify-self: center;
-    }
-
-    /* Centered Text Entry */
-    .text-entry {
-        grid-column: span 2;
-        text-align: center;
-        font-size: 16px;
-        font-weight: bold;
-        padding: 0px 10px;
-        background: rgba(249, 249, 249, 0.0);
-        border-radius: 0px;
-        
-    }
-
-    /* Enlarged Image Effect */
-    .image-container img:active {
-        width:fit-content;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(2.5); /* Centers and enlarges */
-        z-index: 1000; /* Puts it above everything */
-        background: rgba(0, 0, 0, 0.8); /* Adds a dark overlay effect */
-        padding: 10px; /* Optional padding around image */
-        border-radius: 10px;
-    }
-
-
+       
         
         
         
     </style>
 </head>
 <body>
-    <div id="main-header"></div>
+    <div id="experimental-header"></div>
     <div class="header_sep"></div>
-    <div class="content-container">
-        <section class="content-box">
-            <div class="blockTitle">
-                <h1>About Us</h1>
+    <div class="header_sep"></div>
+    <div class="header_sep"></div>
+    <div class="header_sep"></div>
+    <div class="front-page-container" id="index">
+        <!-- Left Side: Logo and Divider -->
+        <div class="front-page-left">
+            <img src="images/logo/logo-light-gray.png" alt="Company Logo">
+        </div>
+    
+        <!-- Right Side: Sliding Text -->
+        <div class="front-page-right">
+            <div class="text-container">
+                <div class="text above">High Costs? We Do Better.</div>
+                <div class="text center">Your Designs, Your Property.</div>
+                <div class="text below">Big Ideas, Small Budgets Welcome.</div>
             </div>
-            <p>Welcome to Daedalus Engineering Designs! I’m Jack Ceriello, a Mechanical Engineer with a concentration in Aerospace Engineering and a deep passion for innovative design. I am currently studying at Stevens Institute of Technology and have received honors and merit-based awards for my academic achievements. Through years of experience with CAD across multiple platforms, I’ve honed my ability to create effective engineering solutions that tackle unique problems. Whether it’s designing parts and tools to solve everyday challenges or developing products for companies like yours, I bring a full toolbox of skills and techniques to every project.
-                At Daedalus Engineering Designs, I focus on ensuring that every part is designed with its intended fabrication process in mind. I have extensive experience working with additive manufacturing (most notably FDM and SLA (resin) 3D printing) and I’ve designed numerous parts optimized for injection molding, laser cutting, and subtractive manufacturing (machining). My goal is to deliver designs that are not only functional and efficient but also perfectly suited to your production methods.
-                Let’s bring your ideas to life. Whether you need CAD files, engineering drawings, or 3D-printed prototypes, I’m here to help turn your vision into reality.</p>
-        </section>
-        <section class="content-box">
-            <div class="blockTitle">
-                <h1>Previous Projects</h1>
-            </div>
-            <p>Highlight some of your most exciting and successful projects here, showcasing your expertise and creativity.</p>
-        </section>
+        </div>
     </div>
 
-    
-        <div class="blockTitle">
-            <h1>Project Photo Gallery</h1>
+    <div style="padding: 150px;"></div>
+    <div class="section-header" id="section-header">
+        <p>SERVICES</p>
+    </div>
+    <section class="services-grid" id="services-start">
+        <div class="service-item">
+            <h2>3D Model Creation</h2>
+            <img src="images/home-photos/photo1.jpeg" alt="3D CAD Design">
+            <h8>Using state-of-the-art Computer Aided Design (CAD) software, we create highly accurate and customized 3D models tailored to your exact specifications. These digital models transform your vision into reality, serving as the foundation for product development and prototyping. We deliver your preferred file formats — including STL, STEP, SLDPRT, SLDASM, OBJ, F3D, and 3MF — and design around critical tolerances to ensure manufacturability and performance.
+                </h8>
         </div>
-            
-        </section>
-        <!-- Project 1 -->
-        <section class = "background-section-1">
-        <div class="project-box">
-            <h3 class="project-title">Project 1</h3>
+        <div class="service-item" id="service-section">
+            <h2>Engineering Drawings</h2>
+            <img src="images/home-photos/Drawing1.png" alt="Engineering Drawings">
+            <h8>Our detailed engineering drawings follow industry standards to bring your 3D CAD models to life by providing the precise specifications needed for fabrication. These drawings act as an essential extension of the digital models, translating complex designs into clear, manufacturable blueprints. Whether your project requires machining, 3D printing, or injection molding for tool and mold creation, our technical drawings ensure that every dimension, tolerance, and material detail is accurately conveyed for flawless production.
+            </h8>
+        </div>
+        <div class="service-item">
+            <h2>3D Printed Prototypes</h2>
+            <img src="images/home-photos/photo3.jpeg" alt="3D Printed Prototype">
+            <h8>Visualize and test your design with high-quality 3D printed rapid prototypes.</h8>
+        </div>
+    </section>
+
+    <div style="padding: 100px;"></div>
+    <div class="description-grid">
+        <div class="box1" id="whyUs-box">
+            <div class="blockTitle"><h1>Why Choose Us</h1></div>
+            <div class="blockText">
+                <p>We provide tailored engineering solutions with precision, creativity, and unmatched quality.<br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+            </div>
+        </div>
+        <div class="box2" id="clientsSay-box">
+            <div class="blockTitle"><h1>What Our Clients Say</h1></div>
+            <div class="blockText">
+                <p>Client A: "Daedalus Engineering Designs delivered our project with incredible attention to detail and professionalism."</p>
+                <p>Client B: "The team’s expertise and dedication made our vision a reality. Highly recommended!"</p>
+            </div>
+        </div>
+        <div class="tall-box" id="feedback-box">
+            <div class="blockTitle"><h1>Feedback</h1></div>
+                <div class="blockText">
+                <p>Your feedback is greatly appreciated! Any thoughts on how we could improve our services will be taken into consideration.<br> 
+                    <br>Please fill out this short <a href="https://forms.gle/7vtSmW4Hpxy638Qj8" target="_blank">form</a>!<br>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="header_sep"></div>
+
+    <div style="padding:100px" id="about"></div>
+    <div class="about-box" id="about-start">
+        <div class="blockTitle">
+            <h1>About Us</h1>
+        </div>
+        <div class="blockText">
+            <h7>Welcome to Daedalus Engineering Designs! I’m Jack Ceriello, a Mechanical Engineer with a concentration in Aerospace Engineering and a deep passion for innovative design. I am currently studying at Stevens Institute of Technology and have received honors and merit-based awards for my academic achievements. <br><br>Through years of experience with CAD across multiple platforms, I’ve honed my ability to create effective engineering solutions that tackle unique problems. Whether it’s designing parts and tools to solve everyday challenges or developing products for companies like yours, I bring a full toolbox of skills and techniques to every project.
+            <br><br>At Daedalus Engineering Designs, I focus on ensuring that every part is designed with its intended fabrication process in mind. I have extensive experience working with additive manufacturing (most notably FDM and SLA (resin) 3D printing) and I’ve designed numerous parts optimized for injection molding, laser cutting, and subtractive manufacturing (machining). <br><br>My goal is to deliver designs that are not only functional and efficient but also perfectly suited to your production methods.
+            Let’s bring your ideas to life. Whether you need CAD files, engineering drawings, or 3D-printed prototypes, I’m here to help turn your vision into reality.
+            </h7>
+        </div>
+    </div>
+    
+    <div style="padding: 50px;"></div>
+
+    <div class="jack-photo" id="jack-photo">
+        <img src="images/logo/logo.png" alt="Company Logo">
+        <h1>Jack Ceriello</h1>
+    </div>
+
+    <div style="padding: 50px;"></div>
+
+    <!-- First two carousels in their boxes -->
+    <div class="content-container" id="projects1-2">
+        <section class="content-box" id="project-1-box">
             <div class="carousel" style="flex: 1; text-align: center;">
+                <h3 class="carousel-title">Project 1</h3>
                 <div class="carousel" id="project1">
                     <img id="project1-image" src="images/project-images/project1-1.png" alt="Project 1">
                     <button class="prev" onclick="prevImage('project1')">❮</button>
                     <button class="next" onclick="nextImage('project1')">❯</button>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <div class = "sep"></div>
-    
-        <!-- Project 2 -->
-    <section class = "background-section-2">
-        <div class="project-box">
-            <h3 class="project-title">Project 2</h3>
+            
+        </section>
+        <section class="content-box" id="project-2-box">
             <div class="carousel" style="flex: 1; text-align: center;">
+                <h3 class="carousel-title">Project 2</h3>
                 <div class="carousel" id="project2">
                     <img class = slide, id="project2-image" src="images/project-images/project2-1.jpeg" alt="Project 2">
                     <button class="prev" onclick="prevImage('project2')">❮</button>
                     <button class="next" onclick="nextImage('project2')">❯</button>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <div class = "sep"></div>
-    
-        <!-- Project 3 -->
-    <section class = "background-section-3">
-        <div class="project-box">
-            <h3 class="project-title">Project 3</h3>
+        </section>
+    </div>
+
+    <!-- Descriptions for projects 1 and 2 -->
+    <div class="content-container" id="background-text-1" >
+        <section class="text-box" >
+            <h7>Welcome to Daedalus Engineering Designs! I’m Jack Ceriello, a Mechanical Engineer with a concentration in Aerospace Engineering and a deep passion for innovative design. I am currently studying at Stevens Institute of Technology and have received honors and merit-based awards for my academic achievements. Through years of experience with CAD across multiple platforms, I’ve honed my ability to create effective engineering solutions that tackle unique problems. Whether it’s designing parts and tools to solve everyday challenges or developing products for companies like yours, I bring a full toolbox of skills and techniques to every project.
+                At Daedalus Engineering Designs, I focus on ensuring that every part is designed with its intended fabrication process in mind. I have extensive experience working with additive manufacturing (most notably FDM and SLA (resin) 3D printing) and I’ve designed numerous parts optimized for injection molding, laser cutting, and subtractive manufacturing (machining). My goal is to deliver designs that are not only functional and efficient but also perfectly suited to your production methods.
+                Let’s bring your ideas to life. Whether you need CAD files, engineering drawings, or 3D-printed prototypes, I’m here to help turn your vision into reality.
+            </h7>
+            
+        </section>
+        <section class="text-box">
+            <h7>Welcome to Daedalus Engineering Designs! I’m Jack Ceriello, a Mechanical Engineer with a concentration in Aerospace Engineering and a deep passion for innovative design. I am currently studying at Stevens Institute of Technology and have received honors and merit-based awards for my academic achievements. Through years of experience with CAD across multiple platforms, I’ve honed my ability to create effective engineering solutions that tackle unique problems. Whether it’s designing parts and tools to solve everyday challenges or developing products for companies like yours, I bring a full toolbox of skills and techniques to every project.
+                At Daedalus Engineering Designs, I focus on ensuring that every part is designed with its intended fabrication process in mind. I have extensive experience working with additive manufacturing (most notably FDM and SLA (resin) 3D printing) and I’ve designed numerous parts optimized for injection molding, laser cutting, and subtractive manufacturing (machining). My goal is to deliver designs that are not only functional and efficient but also perfectly suited to your production methods.
+                Let’s bring your ideas to life. Whether you need CAD files, engineering drawings, or 3D-printed prototypes, I’m here to help turn your vision into reality.
+                </h7>
+        </section>
+    </div>
+
+
+    <div style="padding: 100px;"></div>
+    <!-- Second two carousels in their boxes -->
+    <div class="content-container">
+        <section class="content-box" id="project-3-box">
             <div class="carousel" style="flex: 1; text-align: center;">
+                <h3 class="carousel-title">Project 3</h3>
                 <div class="carousel" id="project3">
                     <img id="project3-image" src="images/project-images/project3-1.jpg" alt="Project 3">
                     <button class="prev" onclick="prevImage('project3')">❮</button>
                     <button class="next" onclick="nextImage('project3')">❯</button>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+        <section class="content-box" id="project-4-box">
+            <div class="carousel" style="flex: 1; text-align: center;">
+                <h3 class="carousel-title">Project 2</h3>
+                <div class="carousel" id="project2">
+                    <img class = slide, id="project2-image" src="images/project-images/project2-1.jpeg" alt="Project 2">
+                    <button class="prev" onclick="prevImage('project2')">❮</button>
+                    <button class="next" onclick="nextImage('project2')">❯</button>
+                </div>
+            </div>
+        </section>
+    </div>
     
+     <!-- Descriptions for projects 3 and 4 -->
+     <div class="content-container" id="background-text-2">
+        <section class="text-box">
+            <h7>Welcome to Daedalus Engineering Designs! I’m Jack Ceriello, a Mechanical Engineer with a concentration in Aerospace Engineering and a deep passion for innovative design. I am currently studying at Stevens Institute of Technology and have received honors and merit-based awards for my academic achievements. Through years of experience with CAD across multiple platforms, I’ve honed my ability to create effective engineering solutions that tackle unique problems. Whether it’s designing parts and tools to solve everyday challenges or developing products for companies like yours, I bring a full toolbox of skills and techniques to every project.
+                At Daedalus Engineering Designs, I focus on ensuring that every part is designed with its intended fabrication process in mind. I have extensive experience working with additive manufacturing (most notably FDM and SLA (resin) 3D printing) and I’ve designed numerous parts optimized for injection molding, laser cutting, and subtractive manufacturing (machining). My goal is to deliver designs that are not only functional and efficient but also perfectly suited to your production methods.
+                Let’s bring your ideas to life. Whether you need CAD files, engineering drawings, or 3D-printed prototypes, I’m here to help turn your vision into reality.
+            </h7>
+            
+        </section>
+        <section class="text-box">
+            <h7>Welcome to Daedalus Engineering Designs! I’m Jack Ceriello, a Mechanical Engineer with a concentration in Aerospace Engineering and a deep passion for innovative design. I am currently studying at Stevens Institute of Technology and have received honors and merit-based awards for my academic achievements. Through years of experience with CAD across multiple platforms, I’ve honed my ability to create effective engineering solutions that tackle unique problems. Whether it’s designing parts and tools to solve everyday challenges or developing products for companies like yours, I bring a full toolbox of skills and techniques to every project.
+                At Daedalus Engineering Designs, I focus on ensuring that every part is designed with its intended fabrication process in mind. I have extensive experience working with additive manufacturing (most notably FDM and SLA (resin) 3D printing) and I’ve designed numerous parts optimized for injection molding, laser cutting, and subtractive manufacturing (machining). My goal is to deliver designs that are not only functional and efficient but also perfectly suited to your production methods.
+                Let’s bring your ideas to life. Whether you need CAD files, engineering drawings, or 3D-printed prototypes, I’m here to help turn your vision into reality.
+                </h7>
+        </section>
+    </div>
     
-    
+
     <div class="added_margin"></div>
     <div id="main-footer"></div>
-    <script>
-        window.onload = function() {
-            
-        };
     
-       
+    <script>
+
+        const fadeClasses = [".service-item", ".description-grid", ".services-grid"];
+        add_fades(fadeClasses, 0.2);
+        add_fades([".section-header"], 0.8);
+
+        let phrases = ["High Costs? We Do Better.", "Your Designs, Your Property.", "Big Ideas, Small Budgets Welcome.", 
+                        "Engineering Without the Overhead.", "Precision. Ownership. Affordability."];
+        let currentIndex = 0;
+
+        function cycleText() {
+            let texts = document.querySelectorAll(".text");
+            let container = document.querySelector(".text-container");
+
+            // Make bottom text shrink and fade out
+            texts.forEach(text => {
+                if (text.classList.contains("below")) {
+                    text.classList.add("exiting");
+                    setTimeout(() => text.remove(), 1500); // Remove after animation
+                }
+            });
+
+            // Move current elements
+            texts.forEach(text => {
+                if (text.classList.contains("center")) {
+                    text.classList.remove("center");
+                    text.classList.add("below");
+                } else if (text.classList.contains("above")) {
+                    text.classList.remove("above");
+                    text.classList.add("center");
+                }
+            });
+
+            // Insert new text with "entering" class, then transition to "above"
+            let newAboveText = document.createElement("div");
+            newAboveText.className = "text entering";
+            currentIndex = (currentIndex + 1) % phrases.length;
+            newAboveText.textContent = phrases[(currentIndex + 1) % phrases.length];
+            container.prepend(newAboveText);
+
+            setTimeout(() => {
+                newAboveText.classList.remove("entering");
+                newAboveText.classList.add("above");
+            }, 100); // Small delay to trigger transition
+        }
+
+        setInterval(cycleText, 3500); // Smooth cycle every 5s
         
+        
+        alter_light_dark_bg("services-start", 0.7, ["feedback-box", "whyUs-box", "clientsSay-box", "services-start", "section-header"], ["feedback-box", "whyUs-box", "clientsSay-box", "services-start"]);
+
         const images = {
             project1: ['images/project-images/project1-1.png', 'images/project-images/project1-2.png', 'images/project-images/project1-3.png'],
             project2: ['images/project-images/project2-1.jpeg', 'images/project-images/project2-2.jpeg', 'images/project-images/project2-3.jpeg'],
@@ -348,31 +609,13 @@
             index[project] = (index[project] - 1 + images[project].length) % images[project].length;
             document.querySelector(`#${project} img`).src = images[project][index[project]];
         }
-
         //Add fade in effect for all desired classes
-        const fadeClasses = [".content-box", ".content-container", ".background-section-1", ".background-section-2", ".background-section-3"];
-        for (let i = 0; i < fadeClasses.length; i++){
-            document.addEventListener("DOMContentLoaded", function () {
-            const serviceItems = document.querySelectorAll(fadeClasses[i]);
+        const fadeClasses2 = [".content-box", ".content-container", ".text-box", ".about-box"];
+        add_fades(fadeClasses2);
+        
+        alter_light_dark_bg("projects1-2", 0.3, ["background-text-1", "background-text-2"], ["project-1-box","project-2-box","project-3-box","project-4-box"]);
+        alter_light_dark_bg("about-start", 0.3, ["background-text-1", "background-text-2"], ["project-1-box","project-2-box","project-3-box","project-4-box"]);
 
-            const observer = new IntersectionObserver(
-                (entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add("show"); // Add the 'show' class when visible
-                           // observer.unobserve(entry.target); // Uncomment if you want it to not hide again once it is shown
-                        }else {
-                        entry.target.classList.remove("show"); // Hide when out of view
-                    }
-                    });
-                },
-                { threshold: 0.2 } // Trigger when 20% of the element is visible
-            );
-            serviceItems.forEach(item => observer.observe(item));
-        });
-        }
-        
-        
     </script>
 
     

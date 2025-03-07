@@ -36,7 +36,7 @@
         .content-box {
             opacity: 0;
             transform: translateY(30px); /* Moves down initially */
-            transition: opacity 1s ease-out, transform 1s ease-out background-color 4s ease-in-out;
+            transition: opacity 1s ease-out, transform 1s ease-out, background-color 1s ease-in-out;
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -65,7 +65,7 @@
         .text-box {
             opacity: 0;
             transform: translateY(30px); /* Moves down initially */
-            transition: opacity 1s ease-out, transform 1s ease-out, color 1s ease;
+            transition: opacity 1s ease-out, transform 1s ease-out, color 1s ease-in-out;
             background: rgba(255, 255, 255, 0); /* Make background transparent */
          
             padding: 0px;
@@ -148,7 +148,7 @@
         }
 
         .jack-photo {
-            
+            align-content: center;
             height: auto;
             margin: 0 auto;
             color: var(--menu-title-text-color);
@@ -182,7 +182,7 @@
     <div style="padding: 50px;"></div>
 
     <div class="jack-photo" id="jack-photo">
-        <img src="images/logo/logo.png" alt="Company Logo">
+        <img src="images/logo/logo-light-gray.png" alt="Company Logo">
         <h1>Jack Ceriello</h1>
     </div>
 

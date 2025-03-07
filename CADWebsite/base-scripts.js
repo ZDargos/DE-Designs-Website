@@ -1,26 +1,27 @@
 // base-scripts.js
 
-document.addEventListener("DOMContentLoaded", function () {
-    // Load the header from header.html and insert it into the page
-    fetch('header.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('main-header').innerHTML = data;
 
-            let currentPage = window.location.pathname.split("/").pop();
+// document.addEventListener("DOMContentLoaded", function () {
+//     // Load the header from header.html and insert it into the page
+//     fetch('experimental_header.html')
+//         .then(response => response.text())
+//         .then(data => {
+//             document.getElementById('experimental-header').innerHTML = data;
+
+//             let currentPage = window.location.pathname.split("/").pop();
         
-        // Get all nav links
-        let navLinks = document.querySelectorAll("nav ul li a");
+//         // Get all nav links
+//         let navLinks = document.querySelectorAll("nav ul li a");
 
-        // Loop through the links and compare with current page
-        navLinks.forEach(link => {
-            if (link.getAttribute("href") === currentPage) {
-                link.classList.add("active");
-            }
-        });
-        })
-        .catch(error => console.error('Error loading header:', error));
-});
+//         // Loop through the links and compare with current page
+//         navLinks.forEach(link => {
+//             if (link.getAttribute("href") === currentPage) {
+//                 link.classList.add("active");
+//             }
+//         });
+//         })
+//         .catch(error => console.error('Error loading header:', error));
+// });
 
 
 
@@ -35,7 +36,7 @@ fetch('footer.html')
             });
 
 
-function add_fades (fadeClasses) {
+function add_fades (fadeClasses, threshold=0.2) {
     for (let i = 0; i < fadeClasses.length; i++){
         document.addEventListener("DOMContentLoaded", function () {
         const serviceItems = document.querySelectorAll(fadeClasses[i]);
@@ -51,7 +52,7 @@ function add_fades (fadeClasses) {
                 }
                 });
             },
-            { threshold: 0.2 } // Trigger when 20% of the element is visible
+            { threshold: threshold } // Trigger when 20% of the element is visible
         );
         serviceItems.forEach(item => observer.observe(item));
     });
@@ -148,5 +149,47 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch(error => console.error('Error loading header:', error));
 });
+document.addEventListener("DOMContentLoaded", function () {
+    // Load the header from header.html and insert it into the page
+    fetch('experimental_header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('experimental-header').innerHTML = data;
 
+            let currentPage = window.location.pathname.split("/").pop();
+        
+            // Get all nav links
+            let navLinks = document.querySelectorAll("nav ul li a");
+
+            // Loop through the links and compare with current page
+            navLinks.forEach(link => {
+                if (link.getAttribute("href") === currentPage) {
+                    link.classList.add("active");
+                }
+            });
+
+            // Add scroll and mouse event listeners to handle header shrinking
+            const header = document.querySelector("header");
+            let lastScrollY = window.scrollY;
+
+            window.addEventListener("scroll", function () {
+                if (window.scrollY > lastScrollY && window.scrollY > 200) {
+                    // Scrolling down and past 100px
+                    header.classList.add("shrink");
+                } else if (window.scrollY < lastScrollY || window.scrollY <= 100) {
+                    // Scrolling up or within 100px from the top
+                    header.classList.remove("shrink");
+                }
+                lastScrollY = window.scrollY;
+            });
+
+            window.addEventListener("mousemove", function (e) {
+                if (e.clientY < 100) {
+                    // Mouse near the top of the screen
+                    header.classList.remove("shrink");
+                }
+            });
+        })
+        .catch(error => console.error('Error loading header:', error));
+});
 
