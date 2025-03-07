@@ -7,6 +7,7 @@
     --menu-main-text-box-bg-color: #7899ae;
     --menu-main-text-color: #E7ECEF;
     --menu-title-text-color: #A3CEF1;
+    --menu-light-bg-color: #ece3d8;
 }
 body {
     font-family: var(--menu-font);
@@ -14,6 +15,7 @@ body {
     padding: 0;
     background-color: var(--menu-main-bg-color);
     text-align: center;
+    transition: background-color 1.5s ease-in-out;
 
 }
 
@@ -40,12 +42,13 @@ h3 {
 h4 {
     font-size: 1.5ex;
     font-weight: 20;
+   
 }
 
 h5 {
     font-size: 2.5ex;
     font-weight: bold;
-    color: white;
+    color: #ff9100;
     margin-bottom: 0px;
 }
 
@@ -102,7 +105,7 @@ nav ul li a {
 
 nav ul li a.active {
     
-    color: #ffcc00;
+    color: #ff9100;
 }
 
 
@@ -130,14 +133,14 @@ footer {
 .blockTitle {
     text-align: center;
     color: var(--menu-main-text-color);
-    padding: 10px 0;
+    padding: 0px;
     font-weight: bold;
     font-size: 10px;
     font-family: "Quicksand", serif;
 }
 
 .blockText {
-    font-family:sans-serif;
+    font-family: var(--menu-font);
     color:var(--menu-main-text-color);
 }
 

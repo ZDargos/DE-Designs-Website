@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="styles.css">
     <script src="base-scripts.js"></script>
     <style>
+
+
         .hero {
             text-align: center;
             color: var(--menu-title-text-color);
@@ -35,7 +37,7 @@
             background: var(--menu-main-bg-color);
             border: 2px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(77, 68, 68, 0.5);
+            box-shadow: 0 4px 8px rgba(126, 113, 113, 0.874);
         }
         .service-item img {
             width: 100%;
@@ -82,7 +84,7 @@
         .box2 {
             grid-column: 1;
             padding: 20px;
-            background: var(--menu-main-text-box-color);
+            background: var(--menu-main-bg-color);
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
@@ -100,17 +102,77 @@
             opacity: 1;
             transform: translateY(0);
         }
+        .text-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            perspective: 500px;
+            display: flex; justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .text {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            transition: transform 1.5s ease-in-out, opacity 1.5s ease-in-out, font-size 1.5s ease-in-out;
+            opacity: 0.5;
+            color: var(--menu-title-text-color);
+            font-size: 10px;
+        }
+
+        .center {
+            font-size: 5em;
+            font-family: var(--menu-font);
+            font-weight: bold;
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .above {
+            font-size: 2.5em;
+            transform: translateY(-3em) scale(0.7);
+            opacity: 0.2;
+        }
+
+        .below {
+            font-size: 2.5em;
+            transform: translateY(3em) scale(0.7);
+            opacity: 0.2;
+        }
+
+        .exiting {
+            transform: translateY(-0.5em) scale(0.5) rotateX(-30deg);
+            opacity: 0;
+        }
+
+        .entering {
+            transform: translateY(0em) scale(0.5);
+            opacity: 0;
+        }
+        
     </style>
 </head>
 <body>
     
     <div id="main-header"></div>
     <div class="header_sep"></div>
-
-    <div class="hero">
-        <h1>Innovative CAD and Engineering Solutions</h1>
+    <div class="header_sep"></div>
+    <div class="header_sep"></div>
+    <div class="header_sep"></div>
+    <div class="text-container">
+        <div class="text above">High Costs? We Do Better.</div>
+        <div class="text center">Your Designs, Your Property.</div>
+        <div class="text below">Big Ideas, Small Budgets Welcome.</div>
     </div>
 
+    <div class="header_sep"></div>
+    <div class="header_sep"></div>
+    <div class="header_sep"></div>
+    <div class="header_sep"></div>
     <section class="services-grid">
         <div class="service-item">
             <h2>3D Model Creation</h2>
@@ -118,7 +180,7 @@
             <h8>Using state-of-the-art Computer Aided Design (CAD) software, we create highly accurate and customized 3D models tailored to your exact specifications. These digital models transform your vision into reality, serving as the foundation for product development and prototyping. We deliver your preferred file formats — including STL, STEP, SLDPRT, SLDASM, OBJ, F3D, and 3MF — and design around critical tolerances to ensure manufacturability and performance.
                 </h8>
         </div>
-        <div class="service-item">
+        <div class="service-item" id="service-section">
             <h2>Engineering Drawings</h2>
             <img src="images/home-photos/Drawing1.png" alt="Engineering Drawings">
             <h8>Our detailed engineering drawings follow industry standards to bring your 3D CAD models to life by providing the precise specifications needed for fabrication. These drawings act as an essential extension of the digital models, translating complex designs into clear, manufacturable blueprints. Whether your project requires machining, 3D printing, or injection molding for tool and mold creation, our technical drawings ensure that every dimension, tolerance, and material detail is accurately conveyed for flawless production.
@@ -201,6 +263,70 @@
 
             serviceItems.forEach(item => observer.observe(item));
         });
+
+        let phrases = ["High Costs? We Do Better.", "Your Designs, Your Property.", "Big Ideas, Small Budgets Welcome.", 
+                        "Engineering Without the Overhead.", "Precision. Ownership. Affordability."];
+        let currentIndex = 0;
+
+        function cycleText() {
+            let texts = document.querySelectorAll(".text");
+            let container = document.querySelector(".text-container");
+
+            // Make bottom text shrink and fade out
+            texts.forEach(text => {
+                if (text.classList.contains("below")) {
+                    text.classList.add("exiting");
+                    setTimeout(() => text.remove(), 1500); // Remove after animation
+                }
+            });
+
+            // Move current elements
+            texts.forEach(text => {
+                if (text.classList.contains("center")) {
+                    text.classList.remove("center");
+                    text.classList.add("below");
+                } else if (text.classList.contains("above")) {
+                    text.classList.remove("above");
+                    text.classList.add("center");
+                }
+            });
+
+            // Insert new text with "entering" class, then transition to "above"
+            let newAboveText = document.createElement("div");
+            newAboveText.className = "text entering";
+            currentIndex = (currentIndex + 1) % phrases.length;
+            newAboveText.textContent = phrases[(currentIndex + 1) % phrases.length];
+            container.prepend(newAboveText);
+
+            setTimeout(() => {
+                newAboveText.classList.remove("entering");
+                newAboveText.classList.add("above");
+            }, 100); // Small delay to trigger transition
+        }
+
+        setInterval(cycleText, 5000); // Smooth cycle every 5s
+        function getCSSRootVariable(variableName) {
+            return getComputedStyle(document.documentElement).getPropertyValue(variableName);
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+            const triggerSection = document.querySelector(".services-grid"); // Section that triggers the color change
+            const body = document.body;
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            body.style.backgroundColor = getCSSRootVariable('--menu-light-bg-color').trim(); // Change to dark background
+                        } else {
+                            body.style.backgroundColor = getCSSRootVariable('--menu-main-bg-color').trim(); // Revert to default (or specify a color)
+                        }
+                    });
+                },
+                { threshold: 0.7 } // Adjust threshold as needed (0.5 means 50% of the section must be visible)
+            );
+
+            observer.observe(triggerSection);
+        });
+
     </script>
 </body>
 </html>

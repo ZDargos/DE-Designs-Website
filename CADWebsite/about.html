@@ -43,6 +43,25 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
+        .about-box {
+            opacity: 0;
+            transform: translateY(30px); /* Moves down initially */
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            background: var(--menu-main-text-box-color);
+            padding: 2px 30px 30px 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%; /* Set the width of the box */
+            max-width: 800px; /* Optionally set a maximum width */
+            margin: 0 auto;
+            
+        }
+
+        .about-box.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .text-box {
             opacity: 0;
             transform: translateY(30px); /* Moves down initially */
@@ -140,7 +159,7 @@
     <div class="header_sep"></div>
 
     
-    <section class="content-box">
+    <div class="about-box">
         <div class="blockTitle">
             <h1>About Us</h1>
         </div>
@@ -150,7 +169,7 @@
             Let’s bring your ideas to life. Whether you need CAD files, engineering drawings, or 3D-printed prototypes, I’m here to help turn your vision into reality.
             </h7>
         </div>
-    </section>
+    </div>
     
     <div style="padding: 50px;"></div>
 
@@ -261,7 +280,7 @@
             document.querySelector(`#${project} img`).src = images[project][index[project]];
         }
         //Add fade in effect for all desired classes
-        const fadeClasses = [".content-box", ".content-container", ".text-box"];
+        const fadeClasses = [".content-box", ".content-container", ".text-box", ".about-box"];
         for (let i = 0; i < fadeClasses.length; i++){
             document.addEventListener("DOMContentLoaded", function () {
             const serviceItems = document.querySelectorAll(fadeClasses[i]);
