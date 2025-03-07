@@ -13,22 +13,9 @@
     <link rel="stylesheet" href="styles.css">
     <script src="base-scripts.js"></script>
     <style>
-        :root {
-            --menu-font: "Quicksand", serif;
-            --menu-font-size: 28px;
-            --menu-font-color: #ffffff;
-        }
-        body {
-            font-family: var(--menu-font);
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            text-align: center;
-        }
-
         .hero {
             text-align: center;
-            color: #235676;
+            color: var(--menu-title-text-color);
             padding: 30px 0;
             font-weight: bold;
         }
@@ -83,14 +70,14 @@
             gap: 20px;
             padding: 20px;
             margin-top: 0px;
-            background-color: #f4f4f4;
+            background-color: var(--menu-main-bg-color);
         }
 
         .box1,
         .box2 {
             grid-column: 1;
             padding: 20px;
-            background: white;
+            background: var(--menu-main-text-box-color);
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
@@ -99,7 +86,7 @@
             grid-column: 2;
             grid-row: 1 / span 2; /* Span across two rows */
             padding: 20px;
-            background: white;
+            background: var(--menu-main-text-box-color);
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
@@ -139,23 +126,25 @@
 
     <div class="description-grid">
         <div class="box1">
-            <h2>Why Choose Us</h2>
-            <div class="blockText"></div>
-            <p>We provide tailored engineering solutions with precision, creativity, and unmatched quality.<br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+            <div class="blockTitle"><h1>Why Choose Us</h1></div>
+            <div class="blockText">
+                <p>We provide tailored engineering solutions with precision, creativity, and unmatched quality.<br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+            </div>
         </div>
         <div class="box2">
-            <h2>What Our Clients Say</h2>
+            <div class="blockTitle"><h1>What Our Clients Say</h1></div>
             <div class="blockText">
                 <p>Client A: "Daedalus Engineering Designs delivered our project with incredible attention to detail and professionalism."</p>
                 <p>Client B: "The team’s expertise and dedication made our vision a reality. Highly recommended!"</p>
             </div>
         </div>
         <div class="tall-box">
-            <h2>Feedback</h2>
-            <p>Your feedback is greatly appreciated! Any thoughts on how we could improve our services will be taken into consideration.<br> 
-                <br>Please fill out this short <a href="https://forms.gle/7vtSmW4Hpxy638Qj8" target="_blank">form</a>!<br>
-                
-            </p>
+            <div class="blockTitle"><h1>Feedback</h1></div>
+                <div class="blockText">
+                <p>Your feedback is greatly appreciated! Any thoughts on how we could improve our services will be taken into consideration.<br> 
+                    <br>Please fill out this short <a href="https://forms.gle/7vtSmW4Hpxy638Qj8" target="_blank">form</a>!<br>
+                </p>
+            </div>
         </div>
     </div>
 
