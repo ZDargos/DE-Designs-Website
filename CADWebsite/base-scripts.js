@@ -61,10 +61,11 @@ function getCSSRootVariable(variableName) {
 //         observer.observe(triggerSection);
 //     });
 // }
-function change_background(trigger_id, original_color, altered_color, threshold, text_ids=[], original_text_color="#141313", altered_text_color="#141313") {
+function change_background(trigger_id, original_color, altered_color, threshold, text_ids=[], original_text_color="#141313", altered_text_color="#141313", box_ids=[], original_box_color="white", altered_box_color="black") {
     document.addEventListener("DOMContentLoaded", function () {
         const triggerSection = document.getElementById(trigger_id); // Section that triggers the color change
         const textElements = text_ids.map(id => document.getElementById(id)); // Array of text elements
+        const boxElements = box_ids.map(id => document.getElementById(id));
         const body = document.body;
         const observer = new IntersectionObserver(
             (entries) => {
@@ -74,10 +75,16 @@ function change_background(trigger_id, original_color, altered_color, threshold,
                         textElements.forEach(element => {
                             element.style.color = altered_text_color; // Change text color for each element
                         });
+                        boxElements.forEach(element => {
+                            element.style.backgroundColor = altered_box_color; // Change text color for each element
+                        });
                     } else {
                         body.style.backgroundColor = original_color; // Revert to default (or specify a color)
                         textElements.forEach(element => {
                             element.style.color = original_text_color; // Revert text color for each element
+                        });
+                        boxElements.forEach(element => {
+                            element.style.backgroundColor = original_box_color; // Change text color for each element
                         });
                     }
                 });
@@ -87,4 +94,10 @@ function change_background(trigger_id, original_color, altered_color, threshold,
 
         observer.observe(triggerSection);
     });
+}
+
+function alter_light_dark_bg(trigger_id, threshold, text_ids=[], box_ids=[]) {
+    change_background(trigger_id, getCSSRootVariable('--menu-main-bg-color').trim(), getCSSRootVariable('--menu-light-bg-color').trim(), threshold,
+    text_ids, getCSSRootVariable('--menu-dark-bg-text-color').trim(), getCSSRootVariable('--menu-light-bg-text-color').trim(), 
+    box_ids, getCSSRootVariable('--menu-dark-bg-box-color').trim(), getCSSRootVariable('--menu-light-bg-box-color').trim());
 }

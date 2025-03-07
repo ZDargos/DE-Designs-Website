@@ -10,6 +10,8 @@
     --menu-light-bg-color: #ece3d8;
     --menu-dark-bg-text-color: #E7ECEF;
     --menu-light-bg-text-color: #020d16;
+    --menu-light-bg-box-color: #ACA9A3;
+    --menu-dark-bg-box-color: #2D3438;
 }
 body {
     font-family: var(--menu-font);
@@ -154,7 +156,7 @@ header {
     display:flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #235676;
+    background-color: #1D4964;
     padding-top: 10px;
     padding-left: 20px;
     padding-right: 10px;

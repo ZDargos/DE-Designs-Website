@@ -36,8 +36,7 @@
         .content-box {
             opacity: 0;
             transform: translateY(30px); /* Moves down initially */
-            transition: opacity 1s ease-out, transform 1s ease-out;
-            background: var(--menu-main-text-box-color);
+            transition: opacity 1s ease-out, transform 1s ease-out background-color 4s ease-in-out;
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -55,6 +54,7 @@
             max-width: 800px; /* Optionally set a maximum width */
             margin: 0 auto;
             
+            
         }
 
         .about-box.show {
@@ -66,7 +66,7 @@
             opacity: 0;
             transform: translateY(30px); /* Moves down initially */
             transition: opacity 1s ease-out, transform 1s ease-out, color 1s ease;
-            background: rgba(255, 255, 255, 0);
+            background: rgba(255, 255, 255, 0); /* Make background transparent */
          
             padding: 0px;
             border-radius: 10px;
@@ -148,7 +148,7 @@
         }
 
         .jack-photo {
-            width: 40%;
+            
             height: auto;
             margin: 0 auto;
             color: var(--menu-title-text-color);
@@ -190,7 +190,7 @@
 
     <!-- First two carousels in their boxes -->
     <div class="content-container" id="projects1-2">
-        <section class="content-box">
+        <section class="content-box" id="project-1-box">
             <div class="carousel" style="flex: 1; text-align: center;">
                 <h3 class="carousel-title">Project 1</h3>
                 <div class="carousel" id="project1">
@@ -201,7 +201,7 @@
             </div>
             
         </section>
-        <section class="content-box">
+        <section class="content-box" id="project-2-box">
             <div class="carousel" style="flex: 1; text-align: center;">
                 <h3 class="carousel-title">Project 2</h3>
                 <div class="carousel" id="project2">
@@ -234,7 +234,7 @@
     <div style="padding: 100px;"></div>
     <!-- Second two carousels in their boxes -->
     <div class="content-container">
-        <section class="content-box">
+        <section class="content-box" id="project-3-box">
             <div class="carousel" style="flex: 1; text-align: center;">
                 <h3 class="carousel-title">Project 3</h3>
                 <div class="carousel" id="project3">
@@ -244,7 +244,7 @@
                 </div>
             </div>
         </section>
-        <section class="content-box">
+        <section class="content-box" id="project-4-box">
             <div class="carousel" style="flex: 1; text-align: center;">
                 <h3 class="carousel-title">Project 2</h3>
                 <div class="carousel" id="project2">
@@ -317,9 +317,7 @@
         });
         }
         
-        change_background("projects1-2", getCSSRootVariable('--menu-main-bg-color').trim(), getCSSRootVariable('--menu-light-bg-color').trim(), 0.3, 
-            ["background-text-1", "background-text-2"], getCSSRootVariable('--menu-dark-bg-text-color').trim(), getCSSRootVariable('--menu-light-bg-text-color').trim());
-        
+        alter_light_dark_bg("projects1-2", 0.3, ["background-text-1", "background-text-2"], ["project-1-box","project-2-box","project-3-box","project-4-box"]);
 
     </script>
 
