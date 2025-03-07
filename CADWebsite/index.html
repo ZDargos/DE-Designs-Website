@@ -13,7 +13,35 @@
     <link rel="stylesheet" href="styles.css">
     <script src="base-scripts.js"></script>
     <style>
+        .front-page-container {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 500px;
+                padding: 50px;
+            }
 
+        .front-page-left {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 20%;
+            border-right: 3px solid var(--menu-title-text-color);
+            padding-right: 40px;
+        }
+
+        .front-page-left img {
+            max-width: 80%;
+            height: auto;
+        }
+
+        .front-page-right {
+            width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
         .hero {
             text-align: center;
@@ -28,6 +56,7 @@
             padding: 50px;
             text-align: center;
             background: var(--menu-main-bg-color);
+            border-radius: 15px;
         }
 
         .service-item {
@@ -118,19 +147,27 @@
             position: absolute;
             width: 100%;
             text-align: center;
-            transition: transform 1.5s ease-in-out, opacity 1.5s ease-in-out, font-size 1.5s ease-in-out;
+            transition: transform 1.5s ease-in-out, opacity 1.5s ease-in-out, font-size 1.5s ease-in-out, background-color .75s ease-in-out;
             opacity: 0.5;
             color: var(--menu-title-text-color);
-            font-size: 10px;
+            font-size: 3px;
+            padding: 10px 20px;
+            border-radius: 25px; /* Rounded edges */
+            max-width: 90%;
         }
 
         .center {
-            font-size: 5em;
+            font-size: 4.5em;
             font-family: var(--menu-font);
-            font-weight: bold;
+            
             opacity: 1;
             transform: translateY(0) scale(1);
+            background: rgba(236, 227, 216, 0.1); /* Semi-transparent highlight */
+            border: 200px;
+            border-color:white;
+            
         }
+
 
         .above {
             font-size: 2.5em;
@@ -163,10 +200,20 @@
     <div class="header_sep"></div>
     <div class="header_sep"></div>
     <div class="header_sep"></div>
-    <div class="text-container">
-        <div class="text above">High Costs? We Do Better.</div>
-        <div class="text center">Your Designs, Your Property.</div>
-        <div class="text below">Big Ideas, Small Budgets Welcome.</div>
+    <div class="front-page-container">
+        <!-- Left Side: Logo and Divider -->
+        <div class="front-page-left">
+            <img src="images/logo/logo.png" alt="Company Logo">
+        </div>
+    
+        <!-- Right Side: Sliding Text -->
+        <div class="front-page-right">
+            <div class="text-container">
+                <div class="text above">High Costs? We Do Better.</div>
+                <div class="text center">Your Designs, Your Property.</div>
+                <div class="text below">Big Ideas, Small Budgets Welcome.</div>
+            </div>
+        </div>
     </div>
 
     <div class="header_sep"></div>
