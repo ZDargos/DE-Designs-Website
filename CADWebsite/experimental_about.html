@@ -62,6 +62,7 @@
             display: inline-block;
             padding-inline: 10px;
             border-radius: 10px;
+            padding-top: 5%;
             
         }
 
@@ -74,8 +75,8 @@
             margin-bottom: 10px;
         }
         .carousel img {
-            width: 20vw;
-            height: 15vw;
+            width: 40vw;
+            height: 30vw;
             object-fit: scale-down;
             
             border-radius: 10px;
@@ -92,7 +93,7 @@
             position: fixed;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%) scale(2.5); /* Centers and enlarges */
+            transform: translate(-50%, -50%) scale(1.25); /* Centers and enlarges */
             z-index: 1000; /* Puts it above everything */
             background: rgba(0, 0, 0, 0.8); /* Adds a dark overlay effect */
             padding: 10px; /* Optional padding around image */
@@ -249,7 +250,7 @@
 </head>
 <body>
     <div id="main-header"></div>
-
+    <div class="header_sep"></div>
     <div class="content-container">
         <section class="content-box">
             <div class="blockTitle">
@@ -271,19 +272,18 @@
         <div class="blockTitle">
             <h1>Project Photo Gallery</h1>
         </div>
-    
+            
+        </section>
         <!-- Project 1 -->
         <section class = "background-section-1">
         <div class="project-box">
             <h3 class="project-title">Project 1</h3>
-            <div class="image-container">
-                <img src="images/project-images/project1-1.png" alt="Project 1 Image 1">
-                <img src="images/project-images/project1-2.png" alt="Project 1 Image 2">
-                <div class="text-entry">Lorem ipsum odor amet, consectetuer adipiscing elit. Potenti mollis 
-                    facilisis sodales euismod interdum dignissim diam facilisi turpis. Aptent sodales maecenas aliquam 
-                    nibh hac nullam nullam augue porta. Volutpat sapien eleifend nec justo vehicula natoque nulla. Ut auctor massa 
-                    curabitur rutrum lobortis ac volutpat platea.</div>
-                <img src="images/project-images/project1-3.png" alt="Project 1 Image 3">
+            <div class="carousel" style="flex: 1; text-align: center;">
+                <div class="carousel" id="project1">
+                    <img id="project1-image" src="images/project-images/project1-1.png" alt="Project 1">
+                    <button class="prev" onclick="prevImage('project1')">❮</button>
+                    <button class="next" onclick="nextImage('project1')">❯</button>
+                </div>
             </div>
         </div>
     </section>
@@ -294,14 +294,12 @@
     <section class = "background-section-2">
         <div class="project-box">
             <h3 class="project-title">Project 2</h3>
-            <div class="image-container">
-                <img src="images/project-images/project2-1.jpeg" alt="Project 2 Image 1">
-                <img src="images/project-images/project2-2.jpeg" alt="Project 2 Image 2">
-                <div class="text-entry">Lorem ipsum odor amet, consectetuer adipiscing elit. Potenti mollis 
-                    facilisis sodales euismod interdum dignissim diam facilisi turpis. Aptent sodales maecenas aliquam 
-                    nibh hac nullam nullam augue porta. Volutpat sapien eleifend nec justo vehicula natoque nulla. Ut auctor massa 
-                    curabitur rutrum lobortis ac volutpat platea.</div>
-                <img src="images/project-images/project2-3.jpeg" alt="Project 2 Image 3">
+            <div class="carousel" style="flex: 1; text-align: center;">
+                <div class="carousel" id="project2">
+                    <img class = slide, id="project2-image" src="images/project-images/project2-1.jpeg" alt="Project 2">
+                    <button class="prev" onclick="prevImage('project2')">❮</button>
+                    <button class="next" onclick="nextImage('project2')">❯</button>
+                </div>
             </div>
         </div>
     </section>
@@ -312,14 +310,12 @@
     <section class = "background-section-3">
         <div class="project-box">
             <h3 class="project-title">Project 3</h3>
-            <div class="image-container">
-                <img src="images/project-images/project3-1.jpg" alt="Project 3 Image 1">
-                <img src="images/project-images/project3-2.jpg" alt="Project 3 Image 2">
-                <div class="text-entry">Lorem ipsum odor amet, consectetuer adipiscing elit. Potenti mollis 
-                    facilisis sodales euismod interdum dignissim diam facilisi turpis. Aptent sodales maecenas aliquam 
-                    nibh hac nullam nullam augue porta. Volutpat sapien eleifend nec justo vehicula natoque nulla. Ut auctor massa 
-                    curabitur rutrum lobortis ac volutpat platea.</div>
-                <img src="images/project-images/project3-3.jpg" alt="Project 3 Image 3">
+            <div class="carousel" style="flex: 1; text-align: center;">
+                <div class="carousel" id="project3">
+                    <img id="project3-image" src="images/project-images/project3-1.jpg" alt="Project 3">
+                    <button class="prev" onclick="prevImage('project3')">❮</button>
+                    <button class="next" onclick="nextImage('project3')">❯</button>
+                </div>
             </div>
         </div>
     </section>
