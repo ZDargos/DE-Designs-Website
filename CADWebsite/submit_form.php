@@ -14,19 +14,8 @@ $dotenv->load();
 $mail = new PHPMailer(true);
 
 try {
-    $name = $_POST["name"];
-    $email = $_POST["email"];
-    $subject = $_POST["subject"];
-    $message = $_POST["message"];
-    // Handle file attachments
-    if(trim(!empty($_FILES["filename"]["tmp_name"]))) {
-        $fileTmpName = $_FILES["filename"]["tmp_name"];
-        $fileName = $_FILES["filename"]["name"];
-        $mail->addAttachment($fileTmpName, $fileName);
-
-    }
     
-    $mail->addAttachment('images/logo/logo-light-gray.png');
+    
     $mail->isSMTP();
     $mail->SMTPAuth = true;
 
@@ -38,12 +27,25 @@ try {
     $mail->Username = $_ENV["SMTP_USERNAME"];
     $mail->Password = $_ENV["SMTP_PASSWORD"];
 
+    $name = $_POST["name"];
+    $email = $_POST["email"];
+    $subject = $_POST["subject"];
+    $message = $_POST["message"];
+    // Handle file attachments
+    if(trim(!empty($_FILES['filename']['tmp_name']))) {
+        $fileTmpName = $_FILES['filename']['tmp_name'];
+        $fileName = $_FILES['filename']['name'];
+        $mail->addAttachment($fileTmpName, $fileName);
+
+    }
+    
     $mail->setFrom($email, $name);
     $mail->addAddress("jackceriello@gmail.com", "Jack");
 
     $mail->Subject = $subject;
     $mail->Body = $message;
     $mail->send();
+    $mail->smtpClose();
     echo json_encode(["status" => "success"]);
 } catch (Exception $e) {
     echo json_encode(["status" => "error", "message" => $mail->ErrorInfo]);
