@@ -31,7 +31,7 @@ try {
     $mail->Password = $_ENV["SMTP_PASSWORD"];
 
     $mail->setFrom($email, $name);
-    $mail->addAddress("zardragos@gmail.com", "Zack");
+    $mail->addAddress("jackceriello@gmail.com", "Jack");
 
     $mail->Subject = $subject;
     $mail->Body = $message;
