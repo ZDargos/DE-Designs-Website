@@ -65,6 +65,7 @@ h6 {
 h7 { /* Basic text box text */
     font-family:GT America Lig-898330cec9f6e459;
     font-size: 2.5ex;
+    
 }
 
 h8 { /* Small text */
@@ -72,6 +73,22 @@ h8 { /* Small text */
     color:var(--menu-main-text-color);
     font-size: 2ex;
 }
+
+.section-header {
+    opacity: 0;
+    transform: translateY(30px); /* Moves down initially */
+    transition: opacity 1s ease-out, transform 1s ease-out, color 1.5s ease-in-out;
+    font-size: 4.5em;
+    font-family: var(--menu-font);
+    border-color:white;
+    padding: 0px;
+}
+
+.section-header.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /*
 Fonts
 */

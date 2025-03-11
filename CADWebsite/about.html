@@ -11,10 +11,44 @@
     <meta name="author" content="Daedalus Engineering Designs">
     <title>About Us - Daedalus Engineering Designs</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="images/logo/logo.ico">
     <script src="base-scripts.js"></script>
+    
     <style>
         
-        
+        .split-container {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 500px;
+                padding: 50px;
+            }
+
+        .split-left {
+            width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-right: 3px solid var(--menu-title-text-color);
+        }
+
+        .split-right img {
+            max-width: 80%;
+            height: auto;
+        }
+
+        .split-right {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 40%;
+            padding-top: 50px;
+            padding-right: 40px;
+            padding-left: 30px;
+            
+        }
+
         .content-container {
             position: static;
             opacity: 0;
@@ -46,12 +80,12 @@
             opacity: 0;
             transform: translateY(30px); /* Moves down initially */
             transition: opacity 1s ease-out, transform 1s ease-out;
-            background: var(--menu-main-bg-color);/*var(--menu-main-text-box-color);*/
+            background: var(--menu-main-text-box-color);
             padding: 2px 30px 30px 30px;
             border-radius: 25px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 80%; /* Set the width of the box */
-            max-width: 800px; /* Optionally set a maximum width */
+            max-width: 45vw; /* Optionally set a maximum width */
             margin: 0 auto;
             
             
@@ -166,27 +200,39 @@
 
     <div class="header_sep"></div>
 
-    
-    <div class="about-box">
-        <div class="blockTitle">
-            <h1>About Us</h1>
+    <div class="split-container">
+        <!-- Left Side: About Text Box -->
+        <div class="split-left">
+            <div class="about-box">
+                <div class="blockTitle">
+                    <h1>About Us</h1>
+                </div>
+                <div class="blockText">
+                    <h7>Welcome to Daedalus Engineering Designs! I’m Jack Ceriello, a Mechanical Engineer with a concentration in Aerospace Engineering and a deep passion for innovative design. I am currently studying at Stevens Institute of Technology and have received honors and merit-based awards for my academic achievements. <br><br>Through years of experience with CAD across multiple platforms, I’ve honed my ability to create effective engineering solutions that tackle unique problems. Whether it’s designing parts and tools to solve everyday challenges or developing products for companies like yours, I bring a full toolbox of skills and techniques to every project.
+                    <br><br>At Daedalus Engineering Designs, I focus on ensuring that every part is designed with its intended fabrication process in mind. I have extensive experience working with additive manufacturing (most notably FDM and SLA (resin) 3D printing) and I’ve designed numerous parts optimized for injection molding, laser cutting, and subtractive manufacturing (machining). <br><br>My goal is to deliver designs that are not only functional and efficient but also perfectly suited to your production methods.
+                    Let’s bring your ideas to life. Whether you need CAD files, engineering drawings, or 3D-printed prototypes, I’m here to help turn your vision into reality.
+                    </h7>
+                </div>
+            </div>
         </div>
-        <div class="blockText">
-            <h7>Welcome to Daedalus Engineering Designs! I’m Jack Ceriello, a Mechanical Engineer with a concentration in Aerospace Engineering and a deep passion for innovative design. I am currently studying at Stevens Institute of Technology and have received honors and merit-based awards for my academic achievements. <br><br>Through years of experience with CAD across multiple platforms, I’ve honed my ability to create effective engineering solutions that tackle unique problems. Whether it’s designing parts and tools to solve everyday challenges or developing products for companies like yours, I bring a full toolbox of skills and techniques to every project.
-            <br><br>At Daedalus Engineering Designs, I focus on ensuring that every part is designed with its intended fabrication process in mind. I have extensive experience working with additive manufacturing (most notably FDM and SLA (resin) 3D printing) and I’ve designed numerous parts optimized for injection molding, laser cutting, and subtractive manufacturing (machining). <br><br>My goal is to deliver designs that are not only functional and efficient but also perfectly suited to your production methods.
-            Let’s bring your ideas to life. Whether you need CAD files, engineering drawings, or 3D-printed prototypes, I’m here to help turn your vision into reality.
-            </h7>
+    
+        <!-- Right Side: Sliding Text -->
+        <div class="split-right">
+            <div class="jack-photo" id="jack-photo">
+                <img src="images/misc/headshot.jpeg" alt="Company Logo">
+                <h1>Jack Ceriello</h1>
+            </div>
         </div>
     </div>
     
-    <div style="padding: 50px;"></div>
+    
+    <div style="padding: 150px;"></div>
 
-    <div class="jack-photo" id="jack-photo">
-        <img src="images/misc/headshot.jpeg" alt="Company Logo">
-        <h1>Jack Ceriello</h1>
+    
+    <div class="section-header" id="section-header">
+        <p>PROJECTS</p>
     </div>
-
-    <div style="padding: 50px;"></div>
+    <div style="padding: 20px;"></div>
 
     <!-- First two carousels in their boxes -->
     <div class="content-container" id="projects1-2">
@@ -205,7 +251,7 @@
             <div class="carousel" style="flex: 1; text-align: center;">
                 <h3 class="carousel-title">Project 2</h3>
                 <div class="carousel" id="project2">
-                    <img class = slide, id="project2-image" src="images/project-images/project2-1.jpeg" alt="Project 2">
+                    <img class = slide, id="project2-image" src="images/project-images/project2-1.png" alt="Project 2">
                     <button class="prev" onclick="prevImage('project2')">❮</button>
                     <button class="next" onclick="nextImage('project2')">❯</button>
                 </div>
@@ -237,7 +283,7 @@
             <div class="carousel" style="flex: 1; text-align: center;">
                 <h3 class="carousel-title">Project 3</h3>
                 <div class="carousel" id="project3">
-                    <img id="project3-image" src="images/project-images/project3-1.jpg" alt="Project 3">
+                    <img id="project3-image" src="images/project-images/project3-1.png" alt="Project 3">
                     <button class="prev" onclick="prevImage('project3')">❮</button>
                     <button class="next" onclick="nextImage('project3')">❯</button>
                 </div>
@@ -246,10 +292,10 @@
         <section class="content-box" id="project-4-box">
             <div class="carousel" style="flex: 1; text-align: center;">
                 <h3 class="carousel-title">Project 2</h3>
-                <div class="carousel" id="project2">
-                    <img class = slide, id="project2-image" src="images/project-images/project2-1.jpeg" alt="Project 2">
-                    <button class="prev" onclick="prevImage('project2')">❮</button>
-                    <button class="next" onclick="nextImage('project2')">❯</button>
+                <div class="carousel" id="project4">
+                    <img class = slide, id="project4-image" src="images/project-images/project4-1.png" alt="Project 4">
+                    <button class="prev" onclick="prevImage('project4')">❮</button>
+                    <button class="next" onclick="nextImage('project4')">❯</button>
                 </div>
             </div>
         </section>
@@ -276,11 +322,12 @@
         };
         
         const images = {
-            project1: ['images/project-images/project1-1.png', 'images/project-images/project1-2.png', 'images/project-images/project1-3.png'],
-            project2: ['images/project-images/project2-1.jpeg', 'images/project-images/project2-2.jpeg', 'images/project-images/project2-3.jpeg'],
-            project3: ['images/project-images/project3-1.jpeg', 'images/project-images/project3-2.png', 'images/project-images/project3-3.png']
+            project1: ['images/project-images/project1-1.png', 'images/project-images/project1-2.png', 'images/project-images/project1-3.png', 'images/project-images/project1-4.png', 'images/project-images/project1-5.jpeg', 'images/project-images/project1-6.jpeg'],
+            project2: ['images/project-images/project2-1.png', 'images/project-images/project2-2.jpeg', 'images/project-images/project2-3.png', 'images/project-images/project2-4.jpeg'],
+            project3: ['images/project-images/project3-1.png', 'images/project-images/project3-2.jpeg', 'images/project-images/project3-3.png', 'images/project-images/project3-4.jpeg', 'images/project-images/project3-5.jpeg', 'images/project-images/project3-6.png'],
+            project4: ['images/project-images/project4-1.png', 'images/project-images/project4-2.png', 'images/project-images/project4-3.png', 'images/project-images/project4-4.png', 'images/project-images/project4-5.png']
         };
-        let index = { project1: 0, project2: 0, project3: 0 };
+        let index = { project1: 0, project2: 0, project3: 0, project4: 0};
         function nextImage(project) {
             index[project] = (index[project] + 1) % images[project].length;
             document.querySelector(`#${project} img`).src = images[project][index[project]];
@@ -292,8 +339,9 @@
         //Add fade in effect for all desired classes
         const fadeClasses = [".content-box", ".content-container", ".text-box", ".about-box"];
         add_fades(fadeClasses);
-        
-        alter_light_dark_bg("projects1-2", 0.3, ["background-text-1", "background-text-2"], ["project-1-box","project-2-box","project-3-box","project-4-box"]);
+        add_fades([".section-header"], 0.8);
+
+        alter_light_dark_bg("projects1-2", 0.3, ["background-text-1", "background-text-2",,"section-header"], ["project-1-box","project-2-box","project-3-box","project-4-box"]);
 
     </script>
 
