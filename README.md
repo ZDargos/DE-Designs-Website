@@ -17,6 +17,19 @@ cd CADWebsite
 ```
 
 ### 2️⃣ Install Required Dependencies
+Test to make sure you have composer installed by running:
+```bash
+composer
+```
+If you do not have composer installed on your machine, run the following commands:
+```bash
+sudo apt update
+sudo apt install php-cli unzip
+cd ~
+curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php
+```
+Make sure you cd back into CADWebsite before continuing.
+
 Run the following commands inside the **CADWebsite** folder:
 ```bash
 composer require phpmailer/phpmailer
