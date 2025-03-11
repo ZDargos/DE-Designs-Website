@@ -25,7 +25,7 @@ $mail->Username = "de.designs.autoemail@gmail.com";
 $mail->Password = "sjlp qfdk gtfc gupk";
 
 $mail->setFrom($email, $name);
-$mail->addAddress("dave@example.com", "Dave");
+$mail->addAddress("zdragos.work@gmail.com", "Zack");
 
 $mail->Subject = $subject;
 $mail->Body = $message;
