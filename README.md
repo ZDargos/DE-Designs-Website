@@ -17,7 +17,7 @@ cd CADWebsite
 ```
 
 ### 2️⃣ Install Required Dependencies
-Test to make sure you have composer installed by running:
+Test to make sure you have **composer** installed by running:
 ```bash
 composer
 ```
@@ -28,6 +28,18 @@ sudo apt install php-cli unzip
 cd ~
 curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php
 ```
+
+Test to make sure you have **php** installed by running:
+```bash
+php
+```
+
+If you do not have **php** installed on your machine, run the following commands:
+```bash
+sudo apt-get install php
+php --version
+```
+
 Make sure you cd back into CADWebsite before continuing.
 
 Run the following commands inside the **CADWebsite** folder:
