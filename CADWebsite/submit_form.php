@@ -19,7 +19,7 @@ try {
     $subject = $_POST["subject"];
     $message = $_POST["message"];
     // Handle file attachments
-    $files = $_POST["myFiles"];
+    $files = $_POST["myFile"];
     echo $files;
     if (!empty($_FILES['filename']['name'][0])) {
         for ($i = 0; $i < count($_FILES['filename']['name']); $i++) {
