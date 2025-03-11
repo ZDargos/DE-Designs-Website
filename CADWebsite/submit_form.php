@@ -46,6 +46,7 @@ try {
 
     $mail->SMTPDebug = 0;
     if (!empty($uploadedFiles)) {
+        print "hiiii\n";
         foreach ($uploadedFiles as $file) {
             $mail->addAttachment($file['file_path'], $file['file_name']);
         }
