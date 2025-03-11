@@ -16,9 +16,14 @@ $email = $_POST["email"];
 $subject = $_POST["subject"];
 $message = $_POST["message"];
 
-if (isset($_FILES['file']) && $_FILES['file']['error'] == UPLOAD_ERR_OK) {
-    $uploadfile = tempnam(sys_get_temp_dir(), sha1($_FILES['file']['name']));
-    move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile);
+$uploadedFiles = array();
+if (!empty($_FILES['filename']['name'][0])) {
+    foreach ($_FILES['filename']['name'] as $key => $name) {
+        $tmp_name = $_FILES['filename']['tmp_name'][$key];
+        $uploadfile = tempnam(sys_get_temp_dir(), sha1($name));
+        move_uploaded_file($tmp_name, $uploadfile);
+        $uploadedFiles[] = ['file_path' => $uploadfile, 'file_name' => $name];
+    }
 }
 $mail = new PHPMailer(true);
 
@@ -41,12 +46,20 @@ try {
     $mail->Body = $message;
 
     $mail->SMTPDebug = 0;
-    if (isset($uploadfile)) {
-        $mail->addAttachment($uploadfile, $_FILES['file']['name']);
+    if (!empty($uploadedFiles)) {
+        foreach ($uploadedFiles as $file) {
+            $mail->addAttachment($file['file_path'], $file['file_name']);
+        }
     }
     $mail->send();
     echo json_encode(["status" => "success"]);
 } catch (Exception $e) {
     echo json_encode(["status" => "error", "message" => $mail->ErrorInfo]);
+}
+
+if (!empty($uploadedFiles)) {
+    foreach ($uploadedFiles as $file) {
+        unlink($file['file_path']);
+    }
 }
 ?>
