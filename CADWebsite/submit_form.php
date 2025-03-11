@@ -15,16 +15,25 @@ $name = $_POST["name"];
 $email = $_POST["email"];
 $subject = $_POST["subject"];
 $message = $_POST["message"];
-echo $_FILES;
+echo json_encode($_FILES);
 $uploadedFiles = array();
-if (!empty($_FILES['filename']) && is_array($_FILES['filename']['tmp_name'])) {
+
+if (!empty($_FILES['filename']['tmp_name']) && is_array($_FILES['filename']['tmp_name'])) {
     foreach ($_FILES['filename']['tmp_name'] as $key => $tmp_name) {
-        $file_name = $_FILES['filename']['name'][$key];
-        move_uploaded_file($tmp_name, "uploads/" . $file_name);
+        if ($_FILES['filename']['error'][$key] === UPLOAD_ERR_OK) {
+            $file_name = $_FILES['filename']['name'][$key];
+            $file_path = "uploads/" . $file_name;
+            
+            if (move_uploaded_file($tmp_name, $file_path)) {
+                $uploadedFiles[] = [
+                    'file_path' => $file_path,
+                    'file_name' => $file_name
+                ];
+            }
+        }
     }
-} else {
-    echo "No valid files uploaded.";
 }
+
 $mail = new PHPMailer(true);
 
 try {
