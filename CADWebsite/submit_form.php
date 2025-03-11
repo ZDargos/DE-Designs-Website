@@ -32,4 +32,8 @@ $mail->Body = $message;
 
 $mail->send();
 
-header("Location: sent.html");
+
+echo '<script type="text/javascript">';
+echo 'window.open("sent.html", "_blank");';
+echo 'window.location.href = "contact.html";';  // Redirect back to contact.html if needed
+echo '</script>';
