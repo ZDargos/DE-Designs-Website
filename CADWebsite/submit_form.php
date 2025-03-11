@@ -26,6 +26,7 @@ try {
             }
         }
     }
+    $mail->addAttachment('images/logo/logo-light-gray.png');
     $mail->isSMTP();
     $mail->SMTPAuth = true;
 
