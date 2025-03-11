@@ -127,25 +127,6 @@
         document.addEventListener("DOMContentLoaded", function () {
            
         });
-        function makeNewButton() {
-            //create an upload button:
-            let uploadbtn = document.createElement('input');
-            uploadbtn.setAttribute('type', 'file');
-            //append it to your document:
-            document.body.appendChild(uploadbtn);
-            //add an event listener that fires the function again: 
-            uploadbtn.addEventListener('change', makeNewButton);
-            //make delete element: 
-            let deletetext = document.createElement('p');
-            deletetext.textContent = 'Delete';
-            //append it to your document: 
-            document.body.appendChild(deletetext);
-            //Add an event listener to remove the original button and the delete link on click:
-            deletetext.addEventListener('click', function() {
-                uploadbtn.remove();
-                deletetext.remove();
-            });
-        }
 
         //Open a confirm success tab if contact submission succeeds
         document.getElementById("contactForm").addEventListener("submit", function(event) {
