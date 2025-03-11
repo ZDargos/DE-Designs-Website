@@ -15,7 +15,7 @@ $name = $_POST["name"];
 $email = $_POST["email"];
 $subject = $_POST["subject"];
 $message = $_POST["message"];
-
+echo $_FILES;
 $uploadedFiles = array();
 if (isset($_FILES['filename'])) {
     $upload_dir = "uploads/";
@@ -45,8 +45,9 @@ try {
     $mail->Body = $message;
 
     $mail->SMTPDebug = 0;
+    print "test1\n";
     if (!empty($uploadedFiles)) {
-        print "hiiii\n";
+        print "test2\n";
         foreach ($uploadedFiles as $file) {
             $mail->addAttachment($file['file_path'], $file['file_name']);
         }
