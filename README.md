@@ -92,5 +92,5 @@ If you face issues:
 
 ---
 
-🚀 Now you're ready to send emails with attachments! If you encounter any issues, feel free to open an issue in this repository. Happy coding! 🎉
+🚀 Now you're ready to launch your website! If you encounter any issues, feel free to open an issue in this repository. Happy coding! 🎉
 
