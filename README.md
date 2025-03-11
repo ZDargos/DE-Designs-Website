@@ -75,8 +75,8 @@ If you face issues:
 - Ensure your SMTP provider allows external app authentication.
 - Increase the file size limit in `php.ini`:
   ```ini
-  upload_max_filesize = 10M
-  post_max_size = 12M
+  upload_max_filesize = 50M # Increase or decrease to your preference
+  post_max_size = 12M # Increase or decrease to your preference
   ```
 - Check `error.log` for debugging:
   ```bash
