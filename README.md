@@ -12,7 +12,7 @@ Ensure you have the following installed:
 
 ### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/your-repo/CADWebsite.git
+git clone https://github.com/ZDargos/DE-Designs-Website.git
 cd CADWebsite
 ```
 
