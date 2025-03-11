@@ -17,12 +17,11 @@ $subject = $_POST["subject"];
 $message = $_POST["message"];
 
 $uploadedFiles = array();
-if (!empty($_FILES['filename']['name'][0])) {
-    foreach ($_FILES['filename']['name'] as $key => $name) {
-        $tmp_name = $_FILES['filename']['tmp_name'][$key];
-        $uploadfile = tempnam(sys_get_temp_dir(), sha1($name));
-        move_uploaded_file($tmp_name, $uploadfile);
-        $uploadedFiles[] = ['file_path' => $uploadfile, 'file_name' => $name];
+if (isset($_FILES['filename'])) {
+    $upload_dir = "uploads/";
+    foreach ($_FILES['filename']['tmp_name'] as $key => $tmp_name) {
+        $file_name = $_FILES['filename']['name'][$key];
+        move_uploaded_file($tmp_name, $upload_dir . $file_name);
     }
 }
 $mail = new PHPMailer(true);
