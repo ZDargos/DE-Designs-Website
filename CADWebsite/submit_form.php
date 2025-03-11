@@ -32,11 +32,17 @@ try {
     $subject = $_POST["subject"];
     $message = $_POST["message"];
     // Handle file attachments
-    if(trim(!empty($_FILES['filename']['tmp_name']))) {
-        $fileTmpName = $_FILES['filename']['tmp_name'];
-        $fileName = $_FILES['filename']['name'];
-        $mail->addAttachment($fileTmpName, $fileName);
+    if (!empty($_FILES['filename']['name'][0])) {
+        for ($i = 0; $i < count($_FILES['filename']['name']); $i++) {
+            $fileTmpName = $_FILES['filename']['tmp_name'][$i];
+            $fileName = $_FILES['filename']['name'][$i];
+            $fileSize = $_FILES['filename']['size'][$i];
+            $fileType = $_FILES['filename']['type'][$i];
 
+            if (is_uploaded_file($fileTmpName)) {
+                $mail->addAttachment($fileTmpName, $fileName);
+            }
+        }
     }
 
     $mail->setFrom($email, $name);
