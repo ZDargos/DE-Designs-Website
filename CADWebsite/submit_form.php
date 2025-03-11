@@ -1,5 +1,5 @@
 <?php
-
+header('Content-Type: application/json');
 $name = $_POST["name"];
 $email = $_POST["email"];
 $subject = $_POST["subject"];
@@ -33,7 +33,10 @@ $mail->Body = $message;
 $mail->send();
 
 
-echo '<script type="text/javascript">';
-echo 'window.open("sent.html", "_blank");';
-echo 'window.location.href = "contact.html";';  // Redirect back to contact.html if needed
-echo '</script>';
+try {
+    $mail->send();
+    echo json_encode(["status" => "success"]);
+} catch (Exception $e) {
+    echo json_encode(["status" => "error", "message" => $mail->ErrorInfo]);
+}
+?>

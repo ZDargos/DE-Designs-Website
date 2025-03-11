@@ -147,6 +147,26 @@
             });
         }
 
+        //Open a confirm success tab if contact submission succeeds
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            let formData = new FormData(this);
+
+            fetch("send.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "success") {
+                    window.open("sent.html", "_blank"); // Open sent.html in a new tab
+                } else {
+                    alert("Error: " + data.message); // Show error message if email fails
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        });
         
     </script>
 
