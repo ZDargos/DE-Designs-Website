@@ -19,7 +19,7 @@ try {
     $subject = $_POST["subject"];
     $message = $_POST["message"];
     // Handle file attachments
-    if(trim(!empty($_FILES["filename"]["tmp_name"][0]))) {
+    if(trim(!empty($_FILES["filename"]["tmp_name"]))) {
         $fileTmpName = $_FILES["filename"]["tmp_name"];
         $fileName = $_FILES["filename"]["name"];
         $mail->addAttachment($fileTmpName, $fileName);
