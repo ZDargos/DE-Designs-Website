@@ -17,12 +17,13 @@ $subject = $_POST["subject"];
 $message = $_POST["message"];
 echo $_FILES;
 $uploadedFiles = array();
-if (isset($_FILES['filename'])) {
-    $upload_dir = "uploads/";
+if (!empty($_FILES['filename']) && is_array($_FILES['filename']['tmp_name'])) {
     foreach ($_FILES['filename']['tmp_name'] as $key => $tmp_name) {
         $file_name = $_FILES['filename']['name'][$key];
-        move_uploaded_file($tmp_name, $upload_dir . $file_name);
+        move_uploaded_file($tmp_name, "uploads/" . $file_name);
     }
+} else {
+    echo "No valid files uploaded.";
 }
 $mail = new PHPMailer(true);
 
@@ -45,9 +46,9 @@ try {
     $mail->Body = $message;
 
     $mail->SMTPDebug = 0;
-    print "test1\n";
+    
     if (!empty($uploadedFiles)) {
-        print "test2\n";
+        
         foreach ($uploadedFiles as $file) {
             $mail->addAttachment($file['file_path'], $file['file_name']);
         }
