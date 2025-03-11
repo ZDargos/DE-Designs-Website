@@ -161,7 +161,9 @@
             .then(data => {
                 if (data.status === "success") {
                     window.open("sent.html", "_blank"); // Open sent.html in a new tab
+                    
                 } else {
+                    console.log("AHAHS");
                     alert("Error: " + data.message); // Show error message if email fails
                 }
             })
