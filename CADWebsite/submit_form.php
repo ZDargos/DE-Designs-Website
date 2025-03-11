@@ -15,7 +15,6 @@ $name = $_POST["name"];
 $email = $_POST["email"];
 $subject = $_POST["subject"];
 $message = $_POST["message"];
-echo json_encode($_FILES);
 $uploadedFiles = array();
 
 if (!empty($_FILES['filename']['tmp_name']) && is_array($_FILES['filename']['tmp_name'])) {
