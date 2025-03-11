@@ -40,7 +40,7 @@ try {
             $fileType = $_FILES['filename']['type'][$i];
 
             if (is_uploaded_file($fileTmpName)) {
-                $mail->addAttachment($fileTmpName, $fileName);
+                $mail->addAttachment($fileTmpName, $fileName, "base64", $fileType);
             }
         }
     }
@@ -56,4 +56,6 @@ try {
 } catch (Exception $e) {
     echo json_encode(["status" => "error", "message" => $mail->ErrorInfo]);
 }
+
+
 ?>
