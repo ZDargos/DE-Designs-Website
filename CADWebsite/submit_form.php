@@ -16,6 +16,10 @@ $email = $_POST["email"];
 $subject = $_POST["subject"];
 $message = $_POST["message"];
 
+if (isset($_FILES['file']) && $_FILES['file']['error'] == UPLOAD_ERR_OK) {
+    $uploadfile = tempnam(sys_get_temp_dir(), sha1($_FILES['file']['name']));
+    move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile);
+}
 $mail = new PHPMailer(true);
 
 try {
@@ -37,7 +41,9 @@ try {
     $mail->Body = $message;
 
     $mail->SMTPDebug = 0;
-
+    if (isset($uploadfile)) {
+        $mail->addAttachment($uploadfile, $_FILES['file']['name']);
+    }
     $mail->send();
     echo json_encode(["status" => "success"]);
 } catch (Exception $e) {
