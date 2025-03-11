@@ -32,7 +32,7 @@ try {
     $subject = $_POST["subject"];
     $message = $_POST["message"];
     // Handle file attachments
-    if (!empty($_FILES['filename']['name']) && is_array($_FILES['filename']['name'])) {
+    if (!empty($_FILES['filename']['name'])) {
         for ($i = 0; $i < count($_FILES['filename']['name']); $i++) {
             $fileTmpName = $_FILES['filename']['tmp_name'][$i];
             $fileName = $_FILES['filename']['name'][$i];
