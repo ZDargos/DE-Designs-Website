@@ -29,12 +29,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border-right: 3px solid var(--menu-title-text-color);
+            
         }
 
         .split-right img {
             max-width: 80%;
             height: auto;
+            border-radius: 25px;
         }
 
         .split-right {
@@ -43,9 +44,8 @@
             align-items: center;
             justify-content: center;
             width: 40%;
-            padding-top: 50px;
             padding-right: 40px;
-            padding-left: 30px;
+            padding-left: 5px;
             
         }
 
@@ -84,8 +84,8 @@
             padding: 2px 30px 30px 30px;
             border-radius: 25px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 80%; /* Set the width of the box */
-            max-width: 45vw; /* Optionally set a maximum width */
+            width: 100%; /* Set the width of the box */
+            max-width: 90vw; /* Optionally set a maximum width */
             margin: 0 auto;
             
             
@@ -220,7 +220,6 @@
         <div class="split-right">
             <div class="jack-photo" id="jack-photo">
                 <img src="images/misc/headshot.jpeg" alt="Company Logo">
-                <h1>Jack Ceriello</h1>
             </div>
         </div>
     </div>
@@ -232,7 +231,7 @@
     <div class="section-header" id="section-header">
         <p>PROJECTS</p>
     </div>
-    <div style="padding: 20px;"></div>
+    <div style="padding: 5px;"></div>
 
     <!-- First two carousels in their boxes -->
     <div class="content-container" id="projects1-2">
@@ -281,7 +280,7 @@
     <div class="content-container">
         <section class="content-box" id="project-3-box">
             <div class="carousel" style="flex: 1; text-align: center;">
-                <h3 class="carousel-title">Project 3</h3>
+                <h3 class="carousel-title" id="dark-carousel-text-1">Project 3</h3>
                 <div class="carousel" id="project3">
                     <img id="project3-image" src="images/project-images/project3-1.png" alt="Project 3">
                     <button class="prev" onclick="prevImage('project3')">❮</button>
@@ -291,7 +290,7 @@
         </section>
         <section class="content-box" id="project-4-box">
             <div class="carousel" style="flex: 1; text-align: center;">
-                <h3 class="carousel-title">Project 2</h3>
+                <h3 class="carousel-title" id="dark-carousel-text-1">Project 2</h3>
                 <div class="carousel" id="project4">
                     <img class = slide, id="project4-image" src="images/project-images/project4-1.png" alt="Project 4">
                     <button class="prev" onclick="prevImage('project4')">❮</button>

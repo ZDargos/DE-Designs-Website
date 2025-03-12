@@ -78,7 +78,7 @@ h8 { /* Small text */
     opacity: 0;
     transform: translateY(30px); /* Moves down initially */
     transition: opacity 1s ease-out, transform 1s ease-out, color 1.5s ease-in-out;
-    font-size: 4.5em;
+    font-size: 4.5vw;
     font-family: var(--menu-font);
     border-color:white;
     padding: 0px;
