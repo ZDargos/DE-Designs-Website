@@ -53,8 +53,10 @@
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            
             gap: 20px;
             padding: 50px;
+           
             text-align: center;
             border-radius: 15px;
             opacity: 0;
@@ -166,12 +168,13 @@
             max-width: 90%;
         }
 
+
         .center {
             font-size: 4.0em;
             font-family: var(--menu-font);
             opacity: 1;
             transform: translateY(0) scale(1);
-            background: rgba(236, 227, 216, 0.1); /* Semi-transparent highlight */
+            background: rgba(31, 29, 27, 0.5); /* Semi-transparent highlight */
             border: 200px;
             border-color:white;
             
@@ -205,7 +208,12 @@
     </style>
 </head>
 <body>
-    
+    <div id="video-container">
+        <video id="myVideo" autoplay muted loop>
+            <source src="videos/GX010025.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
     <div id="main-header"></div>
     <div class="header_sep"></div>
     <div class="header_sep"></div>
@@ -330,6 +338,7 @@
         
         alter_light_dark_bg("services-start", 0.7, ["feedback-box", "whyUs-box", "clientsSay-box", "services-start", "section-header"], ["feedback-box", "whyUs-box", "clientsSay-box", "services-start"]);
 
+       
     </script>
 </body>
 </html>
