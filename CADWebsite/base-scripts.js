@@ -106,6 +106,12 @@ function alter_light_dark_bg(trigger_id, threshold, text_ids=[], box_ids=[]) {
     box_ids, getCSSRootVariable('--menu-dark-bg-box-color').trim(), getCSSRootVariable('--menu-light-bg-box-color').trim());
 }
 
+function alter_dark_light_bg(trigger_id, threshold, text_ids=[], box_ids=[]) {
+    change_background(trigger_id, getCSSRootVariable('--menu-light-bg-color').trim(), getCSSRootVariable('--menu-main-bg-color').trim(), threshold,
+    text_ids, getCSSRootVariable('--menu-light-bg-text-color').trim(), getCSSRootVariable('--menu-dark-bg-text-color').trim(), 
+    box_ids, getCSSRootVariable('--menu-light-bg-box-color').trim(), getCSSRootVariable('--menu-dark-bg-box-color').trim());
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     // Load the header from header.html and insert it into the page
     fetch('header.html')
