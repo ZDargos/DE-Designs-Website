@@ -125,11 +125,15 @@ document.addEventListener("DOMContentLoaded", function () {
             let navLinks = document.querySelectorAll("nav ul li a");
 
             // Loop through the links and compare with current page
+            let foundPage = false;
             navLinks.forEach(link => {
                 if (link.getAttribute("href") === currentPage) {
+                    foundPage = true;
                     link.classList.add("active");
                 }
             });
+            if (!foundPage) navLinks[0].classList.add("active");
+        
 
             // Add scroll and mouse event listeners to handle header shrinking
             const header = document.querySelector("header");

@@ -1,6 +1,6 @@
 :root {
     --menu-font: Items, Times New Roman, sans-serif;
-    --menu-font-size: 16px;
+    --menu-font-size: 20px;
     --menu-font-color: #ffffff;
     --menu-main-bg-color: #030d15;
     --menu-main-text-box-color: #3f6279;
@@ -132,7 +132,7 @@ nav ul li {
 
 nav ul li a {
     font-family: Gt America Standard, sans-serif;
-    font-size: .75rem;
+    font-size: 1rem;
     font-weight: 300;
     line-height: 1.5;
     color: var(--menu-font-color);
