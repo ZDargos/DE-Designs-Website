@@ -18,8 +18,11 @@
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                height: 500px;
                 padding: 50px;
+                padding-bottom: 0px;
+                width: 100%;
+                height: 100vh;
+                margin-bottom:0px;
             }
 
         .front-page-left {
@@ -227,15 +230,14 @@
         <div class="front-page-right">
             <div class="text-container">
                 <div class="text above">High Costs? We Do Better.</div>
-                <div class="text center">Your Designs, Your Property.</div>
+                <div class="text center">High Quality, Low Costs.</div>
                 <div class="text below">Big Ideas, Small Budgets Welcome.</div>
             </div>
         </div>
     </div>
 
-    <div style="padding: 150px;"></div>
     <div class="section-header" id="section-header">
-        <p>SERVICES</p>
+        <p class="section-header">SERVICES</p>
     </div>
     <section class="services-grid" id="services-start">
         <div class="service-item">
@@ -291,8 +293,9 @@
         add_fades(fadeClasses, 0.2);
         add_fades([".section-header"], 0.8);
 
-        let phrases = ["High Costs? We Do Better.", "Your Designs, Your Property.", "Big Ideas, Small Budgets Welcome.", 
-                        "Engineering Without the Overhead.", "Precision. Ownership. Affordability."];
+        let phrases = ["High Costs? We Do Better.", "High Quality, Low Costs.", "Big Ideas, Small Budgets Welcome.", 
+                        "Engineering Without the Overhead.", "Precision. Ownership. Affordability.", "Complex Designs, Simplified",
+                        "Impressive Results, Affordable Prices."];
         let currentIndex = 0;
 
         function cycleText() {
